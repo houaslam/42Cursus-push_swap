@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:18:44 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/13 20:09:34 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:43:10 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_dim1(char *s, char c)
 {

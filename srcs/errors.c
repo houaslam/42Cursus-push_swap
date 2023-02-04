@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/14 14:41:22 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:24:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	check_int(char **str)
 {
@@ -58,19 +58,8 @@ void	check_double(char **av)
 	}
 }
 
-t_list	*handl_arg(t_list **stack_a, char **av)
+void	handl_arg(char **av)
 {
-	int		i;
-	t_list	*new_node;
-
-	i = 1;
 	check_int(av);
-	while (av[i])
-	{
-		new_node = ft_lstnew(ft_atoi(av[i]));
-		ft_lstadd_back(stack_a, new_node);
-		i++;
-	}
 	check_double(av);
-	return (NULL);
 }

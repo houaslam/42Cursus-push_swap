@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/14 19:51:32 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:21:33 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
+	t_data	data;
 
-	if (ac > 1)
+	data.tab = malloc(sizeof(int) * (ac - 1));
+	if (ac > 2)
 	{
+		data.node_num = ac - 1;
 		stack_a = NULL;
-		handl_arg(&stack_a, av);
+		fill_stack(&stack_a, av);
+		node_num(data);
+		handl_arg(av);
+		check_stack_a(stack_a);
+		struct_to_tab(stack_a, &data);
+		sort(data.tab, ac - 1);
+		if (data.node_num <= 5)
+			small_swap(data, &stack_a);
 		aff(stack_a);
+		// else
+		// {
+		// 	node_num(data);
+		// 	push_swap(stack_a, data);
+		// }
 	}
 	else
 		write(1, "Error\n", 6);
-}
-
-void	aff(t_list *stack_a)
-{
-	while (stack_a)
-	{
-		printf("--->%d\n", stack_a->x);
-		stack_a = stack_a->next;
-	}
 }
 
 int	ft_atoi(const char *str)
@@ -79,4 +85,17 @@ t_list	*conv(char **av, t_list *stack_a)
 	stack_a = malloc(sizeof(t_list));
 	stack_a->next = NULL;
 	return (stack_a);
+}
+
+int	check_stack_a(t_list *stack_a)
+{
+	while (stack_a->next)
+	{
+		if (stack_a->x < stack_a->next->x)
+			stack_a = stack_a->next;
+		else
+			return (0);
+	}
+	return (1);
+	exit(0);
 }

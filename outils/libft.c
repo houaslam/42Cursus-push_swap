@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:39:15 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/14 13:12:27 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:21:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -18,6 +18,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (!lst || !new)
 		return ;
+	(new)->index = -1;
 	if (*lst)
 	{
 		last = ft_lstlast(*lst);
@@ -29,6 +30,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!new || !lst)
+		return ;
 	new->next = *lst;
 	*lst = new;
 }

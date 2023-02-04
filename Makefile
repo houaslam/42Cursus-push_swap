@@ -6,7 +6,7 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/01/14 11:12:34 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/03 19:37:30 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,18 @@ NAME = push_swap
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS =  errors.c \
-		libft.c \
-		oper.c \
-		outils.c \
-		push_swap.c \
-		ft_split.c \
-		ft_strlen \
-		libft_2.c \
-		ft_split
+SRCS =  srcs/errors.c \
+		outils/libft.c \
+		srcs/oper.c \
+		srcs/outils.c \
+		srcs/push_swap.c \
+		outils/ft_split.c \
+		outils/ft_strlen.c \
+		outils/libft_2.c \
+		outils/sort.c \
+		srcs/del.c \
+		srcs/swap.c \
+		srcs/main.c
 
 all : ${NAME}
 
@@ -40,3 +43,5 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 re: fclean all
+
+mine : all clean

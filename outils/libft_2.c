@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:02:49 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/14 13:12:54 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:43:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper.c                                             :+:      :+:    :+:   */
+/*   del.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/12 18:34:04 by houaslam         ###   ########.fr       */
+/*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/04 16:10:47 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	s(t_list *stack_a)
+void	aff1(int *tab, int ac)
 {
-	int	tmp;
+	int	i;
 
-	if (ft_lstsize(stack_a) >= 2)
+	i = 0;
+	while (i < ac - 1)
 	{
-		tmp = stack_a->x;
-		stack_a->x = stack_a->next->x;
-		stack_a->next->x = tmp;
+		printf("-**>%d\n", tab[i]);
+		i++;
 	}
 }
 
-void	p(t_list **stack_a, t_list *stack_b)
+void	aff(t_list *stack_a)
 {
-	if (ft_lstsize(*stack_a) > 0)
-		ft_lstadd_front(stack_a, stack_b);
+	while (stack_a)
+	{
+		printf("value = %d\n", stack_a->x);
+		printf("index = %d\n", stack_a->index);
+		stack_a = stack_a->next;
+	}
 }
