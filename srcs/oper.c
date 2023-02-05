@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 15:16:39 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/05 21:33:03 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ void	rr(t_list **stack_a)
 		tmp = tmp->next;
 	}
 	ft_lstadd_front(stack_a, t);
+}
+
+
+void	r(t_list **stack_a)
+{
+	t_list	*tmp;
+	t_list	*t;
+
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	t = ft_lstlast(*stack_a);
+	tmp->next = NULL;
+	t->next = tmp;
 }

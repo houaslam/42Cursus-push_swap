@@ -53,42 +53,50 @@ void	node_num(t_data data)
 
 void	small_swap(t_data data, t_list **stack_a)
 {
+	t_list	*tmp;
+	int k;
+	k = data.node_num;
 	if (data.node_num == 2)
 	{
 		while (check_stack_a(*stack_a) == 0)
 		{
 			rr(stack_a);
 			write(1, "rra\n", 3);
-			printf("\n///////////////////\n");
-			aff(*stack_a);
 		}
 	}
 	else if (data.node_num == 3)
 	{
-		get_val(*stack_a, data);
+		while(k > 0)
+			{
+				tmp = *stack_a;
+				get_val(stack_a, &data);
+				k--;
+			}
+		check_do(stack_a);
 	}
 }
 
-void	get_val(t_list *stack_a, t_data data)
+void	get_val(t_list **stack_a, t_data *data)
 {
-	t_list	*tmp;
 	int		max;
+	t_list *tmp;
 
-	tmp = stack_a;
-	max = tmp->x;
-	while (tmp->next)
+	tmp = *stack_a;
+	max = INT_MIN;
+	while (tmp)
 	{
-		if (tmp->x < (tmp->next)->x && tmp->index == -1)
-			max = (tmp->next)->x;
+		if (tmp->x > max && tmp->index == -1)
+			max = tmp->x;
 		tmp = tmp->next;
 	}
-	while (stack_a)
+	tmp = *stack_a;
+	while (tmp)
 	{
-		if (stack_a->x == max)
+		if (tmp->x == max && tmp->index == -1)
 		{
-			stack_a->index = data.node_num;
-			data.node_num--;
+			tmp->index = data->node_num;
+			data->node_num--;
 		}
-		stack_a = stack_a->next;
+		tmp = tmp->next;
 	}
 }

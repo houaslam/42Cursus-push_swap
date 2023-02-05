@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 16:10:47 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:35:10 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	aff(t_list *stack_a)
 {
 	while (stack_a)
 	{
-		printf("value = %d\n", stack_a->x);
-		printf("index = %d\n", stack_a->index);
+		printf("----> %d\n", stack_a->x);
+
 		stack_a = stack_a->next;
 	}
 }

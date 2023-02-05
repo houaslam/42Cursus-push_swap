@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 15:29:28 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/05 20:27:24 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+#include <limits.h>
 
 typedef struct s_list
 {
@@ -72,7 +73,8 @@ void	struct_to_tab(t_list *stack_a, t_data *data);
 void	fill_stack(t_list **stack_a, char **av);
 void	node_num(t_data data);
 void	small_swap(t_data data, t_list **stack_a);
-void	get_val(t_list *stack_a, t_data data);
+void	get_val(t_list **stack_a, t_data *data);
+void    check_do(t_list **stack_a);
 
 //split
 int		ft_dim1(char *s, char c);

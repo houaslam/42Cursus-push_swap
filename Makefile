@@ -12,8 +12,7 @@
 
 
 NAME = push_swap
-
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = gcc -Wall -Wextra -Werror
 
 SRCS =  srcs/errors.c \
 		outils/libft.c \
@@ -34,7 +33,7 @@ OBJ = ${SRCS:.c=.o}
 
 
 ${NAME} : ${OBJ}
-	cc $(CFLAGS) ${OBJ} -o ${NAME}
+	$(CFLAGS) ${OBJ} -o ${NAME}
 
 
 clean :
