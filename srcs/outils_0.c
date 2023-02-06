@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils.c                                           :+:      :+:    :+:   */
+/*   outils_0.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 17:27:40 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:48:09 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	struct_to_tab(t_list *stack_a, t_data *data)
 	i = 0;
 	while (stack_a)
 	{
-		data->tab[i] = stack_a->x;
+		// data->tab[i] = stack_a->x;
 		i++;
 		stack_a = stack_a->next;
 	}
@@ -39,23 +39,20 @@ void	fill_stack(t_list **stack_a, char **av)
 	}
 }
 
-void	node_num(t_data data)
-{
-	data.n = 1;
-	if (data.node_num <= 10)
-		data.n = 4;
-	else if (data.node_num <= 150)
-		data.n = 8;
-	else if (data.node_num > 150)
-		data.n = 16;
-	data.m = data.node_num / 2;
-}
+// void	node_num(t_data data)
+// {
+// 	data.n = 1;
+// 	if (data.node_num <= 10)
+// 		data.n = 4;
+// 	else if (data.node_num <= 150)
+// 		data.n = 8;
+// 	else if (data.node_num > 150)
+// 		data.n = 16;
+// 	data.m = data.node_num / 2;
+// }
 
 void	small_swap(t_data data, t_list **stack_a)
 {
-	t_list	*tmp;
-	int k;
-	k = data.node_num;
 	if (data.node_num == 2)
 	{
 		while (check_stack_a(*stack_a) == 0)
@@ -66,14 +63,11 @@ void	small_swap(t_data data, t_list **stack_a)
 	}
 	else if (data.node_num == 3)
 	{
-		while(k > 0)
-			{
-				tmp = *stack_a;
-				get_val(stack_a, &data);
-				k--;
-			}
+		get_val_end(stack_a, &data);
 		check_do(stack_a);
 	}
+	else if (data.node_num == 4)
+		only_four(stack_a, &data);
 }
 
 void	get_val(t_list **stack_a, t_data *data)
@@ -99,4 +93,15 @@ void	get_val(t_list **stack_a, t_data *data)
 		}
 		tmp = tmp->next;
 	}
+}
+
+void	get_val_end(t_list	**stack_a, t_data *data)
+{
+	int k;
+	k = data->node_num;
+		while(k > 0)
+			{
+				get_val(stack_a, data);
+				k--;
+			}
 }

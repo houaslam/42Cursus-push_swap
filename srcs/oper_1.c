@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del.c                                              :+:      :+:    :+:   */
+/*   oper_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/06 01:42:11 by houaslam         ###   ########.fr       */
+/*   Created: 2023/02/06 00:45:32 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/06 00:49:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	aff1(int *tab, int ac)
+void    write_r(t_list **stack, char *str)
 {
-	int	i;
-
-	i = 0;
-	while (i < ac - 1)
-	{
-		printf("-**>%d\n", tab[i]);
-		i++;
-	}
+    r(stack);
+    write(1, str, ft_strlen(str));
 }
 
-void	aff(t_list *stack_a)
+void    write_s(t_list **stack, char *str)
 {
-	while (stack_a)
-	{
-		printf("----> %d\n", stack_a->x);
-		printf("> %d\n", stack_a->index);
-		stack_a = stack_a->next;
-	}
+    s(stack);
+    write(1, str, ft_strlen(str));
+}
+
+
+void    write_rr(t_list **stack, char *str)
+{
+    rr(stack);
+    write(1, str, ft_strlen(str));
+}
+
+void    write_p(t_list **stack_2, t_list **stack, char *str)
+{
+    p(stack, stack_2);
+    write(1, str, ft_strlen(str));
 }

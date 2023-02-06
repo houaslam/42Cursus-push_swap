@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 17:21:33 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/06 01:49:03 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 	t_data	data;
 
-	data.tab = malloc(sizeof(int) * (ac - 1));
+	// data.tab = malloc(sizeof(int) * (ac - 1));
 	if (ac > 2)
 	{
 		data.node_num = ac - 1;
 		stack_a = NULL;
 		fill_stack(&stack_a, av);
-		node_num(data);
+		// node_num(data);
 		handl_arg(av);
 		check_stack_a(stack_a);
 		struct_to_tab(stack_a, &data);
-		sort(data.tab, ac - 1);
+		// sort(data.tab, ac - 1);
 		if (data.node_num <= 5)
 			small_swap(data, &stack_a);
 		aff(stack_a);

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/05 20:27:24 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/06 02:09:25 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,12 @@ typedef struct s_list
 	int				x;
 	struct s_list	*next;
 	int				index;
+	int				num;
 }					t_list;
 
 typedef struct t_data
 {
-	int	*tab;
 	int	node_num;
-	int	n;
-	int	m;
-	int	start;
-	int	end;
-	int	max;
-	int	min;
-	int	mid;
 }		t_data;
 
 // libft
@@ -55,10 +48,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 
 // tools
-void	s(t_list *stack_a);
-void	p(t_list **stack_a, t_list *stack_b);
+void	s(t_list **stack_a);
+void	p(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_a);
 void	r(t_list **stack_a);
+void    write_r(t_list **stack, char *str);
+void    write_s(t_list **stack, char *str);
+void    write_rr(t_list **stack, char *str);
+void    write_p(t_list **stack_2, t_list **stack, char *str);
 
 // del
 void	aff(t_list *node);
@@ -75,6 +72,8 @@ void	node_num(t_data data);
 void	small_swap(t_data data, t_list **stack_a);
 void	get_val(t_list **stack_a, t_data *data);
 void    check_do(t_list **stack_a);
+void	get_val_end(t_list	**stack_a, t_data *data);
+void	only_four(t_list	**stack_a, t_data *data);
 
 //split
 int		ft_dim1(char *s, char c);

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:39:15 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 17:21:19 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/06 02:10:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!lst || !new)
 		return ;
 	(new)->index = -1;
+	new->num++;
 	if (*lst)
 	{
 		last = ft_lstlast(*lst);
