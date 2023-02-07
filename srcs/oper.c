@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/06 02:02:49 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:37:40 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 void	s(t_list **stack_a)
 {
 	int	tmp;
+	int	a_tmp;
 
 	if (ft_lstsize(*stack_a) >= 2)
 	{
+		a_tmp = (*stack_a)->index;
+		(*stack_a)->index = (*stack_a)->next->index;
+		(*stack_a)->next->index = a_tmp;
 		tmp = (*stack_a)->x;
 		(*stack_a)->x = (*stack_a)->next->x;
 		(*stack_a)->next->x = tmp;

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/06 01:49:03 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:29:00 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 		if (data.node_num <= 5)
 			small_swap(data, &stack_a);
 		aff(stack_a);
+		printf("/////\n");
 		// else
 		// {
 		// 	node_num(data);

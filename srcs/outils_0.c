@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/06 01:48:09 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:41:22 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ void	fill_stack(t_list **stack_a, char **av)
 	int		i;
 
 	i = 1;
-	while (av[i] != NULL)
+	while (av[i])
 	{
 		new_node = ft_lstnew(ft_atoi(av[i]));
+
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
@@ -64,7 +65,7 @@ void	small_swap(t_data data, t_list **stack_a)
 	else if (data.node_num == 3)
 	{
 		get_val_end(stack_a, &data);
-		check_do(stack_a);
+		check_do(stack_a, data);
 	}
 	else if (data.node_num == 4)
 		only_four(stack_a, &data);
@@ -98,10 +99,14 @@ void	get_val(t_list **stack_a, t_data *data)
 void	get_val_end(t_list	**stack_a, t_data *data)
 {
 	int k;
+	int	j;
+
+	j = data->node_num;
 	k = data->node_num;
 		while(k > 0)
 			{
 				get_val(stack_a, data);
 				k--;
 			}
+	data->node_num = j;
 }
