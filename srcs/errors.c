@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/04 15:24:19 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:31:26 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ void	check_int(char **str)
 	}
 }
 
-void	check_double(char **av)
+void	check_double(t_data data)
 {
 	int	i;
 	int	j;
 
-	j = 1;
-	while (av[j])
+	j = 0;
+	while (j < data.node_num)
 	{
-		i = 1;
-		while (av[i])
+		i = 0;
+		while (i < data.node_num)
 		{
-			if (strcmp(av[j], av[i]) == 0 && i != j)
+			if (data.tab[i] == data.tab[j] && i != j)
 			{
 				write(1, "/Error\n", 7);
 				exit(1);
@@ -58,8 +58,20 @@ void	check_double(char **av)
 	}
 }
 
-void	handl_arg(char **av)
+void	handl_arg(char **av, t_data data)
 {
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	data.tab = malloc(sizeof(int) * (data.node_num));
 	check_int(av);
-	check_double(av);
+	while (av[i])
+	{
+		data.tab[j] = ft_atoi(av[i]);
+		j++;
+		i++;
+	}
+	check_double(data);
 }

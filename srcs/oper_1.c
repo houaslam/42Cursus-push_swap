@@ -6,33 +6,33 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:45:32 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/06 00:49:19 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:14:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void    write_r(t_list **stack, char *str)
+void	write_r(t_list **stack, char *str)
 {
-    r(stack);
-    write(1, str, ft_strlen(str));
+	r(stack);
+	write(1, str, ft_strlen(str));
 }
 
-void    write_s(t_list **stack, char *str)
+void	write_s(t_list **stack, char *str)
 {
-    s(stack);
-    write(1, str, ft_strlen(str));
+	s(stack);
+	write(1, str, ft_strlen(str));
 }
 
 
-void    write_rr(t_list **stack, char *str)
+void	write_rr(t_list **stack, char *str)
 {
-    rr(stack);
-    write(1, str, ft_strlen(str));
+	rr(stack);
+	write(1, str, ft_strlen(str));
 }
 
-void    write_p(t_list **stack_2, t_list **stack, char *str)
+void	write_p(t_list **stack_2, t_list **stack, char *str)
 {
-    p(stack, stack_2);
-    write(1, str, ft_strlen(str));
+	p(stack_2, stack);
+	write(1, str, ft_strlen(str));
 }

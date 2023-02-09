@@ -6,13 +6,13 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:30:01 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/03 19:37:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:53:52 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void push_swap(t_data data, t_list **stack_a)
-// {
+void push_swap(t_data data, t_list **stack_a)
+{
     
-// }
+}

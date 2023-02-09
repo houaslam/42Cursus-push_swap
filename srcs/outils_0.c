@@ -6,24 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/07 20:41:22 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:46:34 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	struct_to_tab(t_list *stack_a, t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (stack_a)
-	{
-		// data->tab[i] = stack_a->x;
-		i++;
-		stack_a = stack_a->next;
-	}
-}
 
 void	fill_stack(t_list **stack_a, char **av)
 {
@@ -34,23 +21,10 @@ void	fill_stack(t_list **stack_a, char **av)
 	while (av[i])
 	{
 		new_node = ft_lstnew(ft_atoi(av[i]));
-
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
 }
-
-// void	node_num(t_data data)
-// {
-// 	data.n = 1;
-// 	if (data.node_num <= 10)
-// 		data.n = 4;
-// 	else if (data.node_num <= 150)
-// 		data.n = 8;
-// 	else if (data.node_num > 150)
-// 		data.n = 16;
-// 	data.m = data.node_num / 2;
-// }
 
 void	small_swap(t_data data, t_list **stack_a)
 {
@@ -63,18 +37,17 @@ void	small_swap(t_data data, t_list **stack_a)
 		}
 	}
 	else if (data.node_num == 3)
-	{
-		get_val_end(stack_a, &data);
 		check_do(stack_a, data);
-	}
 	else if (data.node_num == 4)
-		only_four(stack_a, &data);
+		only_four(stack_a, &data, 1);
+	else if (data.node_num == 5)
+		only_five(stack_a, &data);
 }
 
 void	get_val(t_list **stack_a, t_data *data)
 {
 	int		max;
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
 	max = INT_MIN;
@@ -98,15 +71,30 @@ void	get_val(t_list **stack_a, t_data *data)
 
 void	get_val_end(t_list	**stack_a, t_data *data)
 {
-	int k;
+	int	k;
 	int	j;
 
 	j = data->node_num;
 	k = data->node_num;
-		while(k > 0)
-			{
-				get_val(stack_a, data);
-				k--;
-			}
+	while (k > 0)
+	{
+		get_val(stack_a, data);
+		k--;
+	}
 	data->node_num = j;
+}
+
+void	only_five(t_list **stack_a, t_data *data)
+{
+	t_list	*tmp;
+	t_list	*stack_b;
+
+	tmp = *stack_a;
+	stack_b = NULL;
+	get_val_end(&tmp, data);
+	tmp = *stack_a;
+	tmp = *stack_a;
+	check_close(stack_a, data, &stack_b, 1);
+	only_four(stack_a, data, 2);
+	write_p(&stack_b, stack_a, "pa\n");
 }

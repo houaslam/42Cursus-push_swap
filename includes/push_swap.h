@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/07 19:27:23 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:25:03 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -30,6 +30,7 @@ typedef struct s_list
 typedef struct t_data
 {
 	int	node_num;
+	int	*tab;
 }		t_data;
 
 // libft
@@ -52,10 +53,10 @@ void	s(t_list **stack_a);
 void	p(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_a);
 void	r(t_list **stack_a);
-void    write_r(t_list **stack, char *str);
-void    write_s(t_list **stack, char *str);
-void    write_rr(t_list **stack, char *str);
-void    write_p(t_list **stack_2, t_list **stack, char *str);
+void	write_r(t_list **stack, char *str);
+void	write_s(t_list **stack, char *str);
+void	write_rr(t_list **stack, char *str);
+void	write_p(t_list **stack_2, t_list **stack, char *str);
 
 // del
 void	aff(t_list *node);
@@ -63,17 +64,20 @@ void	aff(t_list *node);
 // push_swap
 t_list	*conv(char **av, t_list *stack_a);
 void	check_int(char **str);
-void	check_double(char **av);
+void	check_double(t_data data);
+void	check_close(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
 int		check_stack_a(t_list *stack_a);
-void	handl_arg(char **av);
-void	struct_to_tab(t_list *stack_a, t_data *data);
+void	check_do(t_list **stack_a, t_data data);
+void	handl_arg(char **av, t_data data);
 void	fill_stack(t_list **stack_a, char **av);
 void	node_num(t_data data);
 void	small_swap(t_data data, t_list **stack_a);
 void	get_val(t_list **stack_a, t_data *data);
-void    check_do(t_list **stack_a, t_data data);
 void	get_val_end(t_list	**stack_a, t_data *data);
-void	only_four(t_list	**stack_a, t_data *data);
+void	only_four(t_list **stack_a, t_data *data, int nb);
+void	only_five(t_list **stack_a, t_data *data);
+void	get_out_up(t_list **stack_a, t_list **stack_b, int nb);
+void	get_out_down(t_list **stack_a, t_list **stack_b, int nb);
 
 //split
 int		ft_dim1(char *s, char c);

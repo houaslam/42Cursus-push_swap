@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/07 20:37:40 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:30:49 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	s(t_list **stack_a)
 	}
 }
 
-void	p(t_list **stack_a, t_list **stack_b)
+void	p(t_list **stack_src, t_list **stack_dest)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
-	if (!*stack_a)
+	if (!*stack_src)
 		return ;
-	tmp = (*stack_a)->next;
-	(*stack_a)->next = *stack_b;
-	*stack_b = *stack_a;
-	*stack_a = tmp;
+	tmp = (*stack_src)->next;
+	(*stack_src)->next = *stack_dest;
+	*stack_dest = *stack_src;
+	*stack_src = tmp;
 }
 
 void	rr(t_list **stack_a)
