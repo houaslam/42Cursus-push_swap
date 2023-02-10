@@ -6,36 +6,39 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:23:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/09 20:45:39 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:08:02 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	check_do(t_list **stack_a, t_data data)
+void	check_do(t_list **stack_a)
 {
-	if ((*stack_a)->index == data.node_num - 1 && (*stack_a)->\
-	next->index == data.node_num - 2 && \
-	(*stack_a)->next->next->index == data.node_num)
+	int	max;
+	int	min;
+	int	mid;
+
+	max = max_index(*stack_a);
+	min = min_index(*stack_a);
+	mid = mid_index(*stack_a, max, min);
+	// printf("%d\n", min);
+	if ((*stack_a)->index == mid && (*stack_a)->next->index == min \
+	&& (*stack_a)->next->next->index == max)
 		write_s(stack_a, "sa\n");
-	else if ((*stack_a)->index == data.node_num && (*stack_a)->\
-	next->index == data.node_num - 1 && \
-	(*stack_a)->next->next->index == data.node_num - 2)
+	else if ((*stack_a)->index == max && (*stack_a)->next->index == mid && \
+	(*stack_a)->next->next->index == min)
 	{
 		write_s(stack_a, "sa\n");
-		write_rr(stack_a, "rra \n");
-	}
-	else if ((*stack_a)->index == data.node_num \
-	- 1 && (*stack_a)->next->index == data.node_num \
-	&& (*stack_a)->next->next->index == data.node_num - 2)
 		write_rr(stack_a, "rra\n");
-	else if ((*stack_a)->index == data.node_num && \
-	(*stack_a)-> next->index == data.node_num - 2 && \
-	(*stack_a)->next->next->index == data.node_num - 1)
+	}
+	else if ((*stack_a)->index == mid && (*stack_a)->next->index == max \
+	&& (*stack_a)->next->next->index == min)
+		write_rr(stack_a, "rra\n");
+	else if ((*stack_a)->index == max && (*stack_a)-> next->index == min && \
+	(*stack_a)->next->next->index == mid)
 		write_r(stack_a, "ra\n");
-	else if ((*stack_a)->index == data.node_num - 2 && \
-	(*stack_a)->next->index == data.node_num && \
-	(*stack_a)->next->next->index == data.node_num - 1)
+	else if ((*stack_a)->index == min && (*stack_a)->next->index == max \
+	&& (*stack_a)->next->next->index == mid)
 	{
 		write_s(stack_a, "sa\n");
 		write_r(stack_a, "ra\n");
@@ -52,7 +55,7 @@ void	only_four(t_list **stack_a, t_data *data, int nb)
 	get_val_end(&tmp, data);
 	tmp = *stack_a;
 	check_close(stack_a, data, &stack_b, nb);
-	check_do(stack_a, *data);
+	check_do(stack_a);
 	write_p(&stack_b, stack_a, "pa\n");
 }
 

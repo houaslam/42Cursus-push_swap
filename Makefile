@@ -6,7 +6,7 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/02/09 17:44:52 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/10 11:09:58 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRCS =  srcs/errors.c \
 		srcs/outils_1.c \
 		srcs/push_swap.c \
 		outils/ft_split.c \
-		outils/ft_strlen.c \
 		outils/libft_2.c \
+		outils/libft_3.c \
 		outils/sort.c \
 		srcs/del.c \
 		srcs/swap.c \

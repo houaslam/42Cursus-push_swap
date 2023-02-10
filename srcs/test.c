@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/07 13:53:21 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/31 17:43:17 by houaslam         ###   ########.fr       */
+/*   Created: 2023/02/10 16:21:17 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/10 16:21:51 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-size_t	ft_strlen(const char *str)
+int main()
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+    t_list *stack_a;
 }

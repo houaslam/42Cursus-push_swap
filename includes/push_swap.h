@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/09 20:25:03 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:06:42 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ typedef struct t_data
 {
 	int	node_num;
 	int	*tab;
+	int	n;
+	int	start;
+	int	end;
+	int	off;
+	int	size;
+	int	i;
 }		t_data;
-
 // libft
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -62,15 +67,13 @@ void	write_p(t_list **stack_2, t_list **stack, char *str);
 void	aff(t_list *node);
 
 // push_swap
-t_list	*conv(char **av, t_list *stack_a);
 void	check_int(char **str);
 void	check_double(t_data data);
-void	check_close(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
 int		check_stack_a(t_list *stack_a);
-void	check_do(t_list **stack_a, t_data data);
+void	check_do(t_list **stack_a);
+void	check_close(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
 void	handl_arg(char **av, t_data data);
 void	fill_stack(t_list **stack_a, char **av);
-void	node_num(t_data data);
 void	small_swap(t_data data, t_list **stack_a);
 void	get_val(t_list **stack_a, t_data *data);
 void	get_val_end(t_list	**stack_a, t_data *data);
@@ -78,6 +81,12 @@ void	only_four(t_list **stack_a, t_data *data, int nb);
 void	only_five(t_list **stack_a, t_data *data);
 void	get_out_up(t_list **stack_a, t_list **stack_b, int nb);
 void	get_out_down(t_list **stack_a, t_list **stack_b, int nb);
+void	figure_para(t_data *data);
+void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
+void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);
+int		mid_index(t_list *stack_a, int max, int min);
+int		min_index(t_list *stack_a);
+int		max_index(t_list *stack_a);
 
 //split
 int		ft_dim1(char *s, char c);
