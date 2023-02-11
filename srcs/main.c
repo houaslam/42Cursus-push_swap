@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 17:09:22 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:39:18 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,16 @@ int	main(int ac, char **av)
 	t_data	data;
 	t_list	*tmp;
 
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		stack_b = NULL;
 		stack_a = NULL;
-		data.node_num = ac - 1;
+		data.tab = malloc(sizeof(int) * (ac - 1));
+		handl_arg(av, &data);
 		data.size = data.node_num;
 		data.i = data.node_num;
-		data.tab = malloc(sizeof(int) * (ac - 1));
-		handl_arg(av, data);
+		fill_stack(&stack_a, data);
 		free(data.tab);
-		fill_stack(&stack_a, av);
 		check_stack_a(stack_a);
 		get_val_end(&stack_a, &data);
 		tmp = stack_a;
@@ -43,7 +42,7 @@ int	main(int ac, char **av)
 			// while (stack_b)
 			// 	push_back(&data, &stack_b, &stack_a);
 		}
-		//aff(stack_a);
+		// aff(stack_a);
 	}
 	else
 		write(1, "Error\n", 6);

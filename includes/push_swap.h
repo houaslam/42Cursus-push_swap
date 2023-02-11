@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 15:06:42 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:27:28 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	check_double(t_data data);
 int		check_stack_a(t_list *stack_a);
 void	check_do(t_list **stack_a);
 void	check_close(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
-void	handl_arg(char **av, t_data data);
-void	fill_stack(t_list **stack_a, char **av);
+void	handl_arg(char **av, t_data *data);
+void	fill_stack(t_list **stack_a, t_data data);
 void	small_swap(t_data data, t_list **stack_a);
 void	get_val(t_list **stack_a, t_data *data);
 void	get_val_end(t_list	**stack_a, t_data *data);

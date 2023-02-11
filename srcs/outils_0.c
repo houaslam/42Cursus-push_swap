@@ -6,21 +6,21 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 15:55:52 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:29:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	fill_stack(t_list **stack_a, char **av)
+void	fill_stack(t_list **stack_a, t_data data)
 {
 	t_list	*new_node;
 	int		i;
 
-	i = 1;
-	while (av[i])
+	i = 0;
+	while (i < data.node_num)
 	{
-		new_node = ft_lstnew(ft_atoi(av[i]));
+		new_node = ft_lstnew(data.tab[i]);
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}

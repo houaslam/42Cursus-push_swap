@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 21:03:44 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:31:07 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	check_int(char **str)
 	while (str[j])
 	{
 		i = 0;
-		if (str[j][i] == '-' || str[j][i] == '+')
+		if (str[j][i] == '-' || str[j][i] == '+' || str[i][j] == ' ')
 			i++;
 		while (str[j][i])
 		{
-			if (!(str[j][i] >= '0' && str[j][i] <= '9'))
+			if (!((str[j][i] >= '0' && str[j][i] <= '9') || str[j][i] == ' '))
 			{
 				write(1, "+Error\n", 7);
 				exit(1);
@@ -58,28 +58,30 @@ void	check_double(t_data data)
 	}
 }
 
-void	handl_arg(char **av, t_data data)
+void	handl_arg(char **av, t_data *data)
 {
-	int	i;
-	int	j;
-	char **str;
-	int	o;
+	int		i;
+	char	**str;
+	int		o;
 
 	i = 1;
-	j = 0;
 	o = 0;
-	data.tab = malloc(sizeof(int) * (data.node_num));
+	data->node_num = 0;
+	data->tab = malloc(sizeof(int) * (data->node_num));
 	check_int(av);
 	while (av[i])
 	{
 		str = ft_split(av[i], ' ');
-		while(str[o])
+		o = 0;
+		while (str[o])
 		{
-			data.tab[j] = ft_atoi(str[o]);
+			data->tab[data->node_num] = ft_atoi(str[o]);
+			free(str[o]);
 			o++;
-			j++;
+			data->node_num++;
 		}
-			i++;
+		i++;
 	}
-	check_double(data);
+	free(str);
+	check_double(*data);
 }

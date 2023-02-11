@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:18:44 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/31 17:43:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:17:01 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_dim1(char *s, char c)
 
 char	**ft_freestr(char **arr, int p)
 {
-	while (p <= 0)
+	while (p >= 0)
 	{
 		free(arr[p]);
 		p--;
