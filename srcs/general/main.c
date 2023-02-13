@@ -6,13 +6,13 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 08:39:18 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:18:37 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	main(int ac, char **av)
+void	main_push(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -21,12 +21,12 @@ int	main(int ac, char **av)
 
 	if (ac >= 2)
 	{
+		data.size_b = 0;
 		stack_b = NULL;
 		stack_a = NULL;
-		data.tab = malloc(sizeof(int) * (ac - 1));
+		data.factor = 1;
 		handl_arg(av, &data);
-		data.size = data.node_num;
-		data.i = data.node_num;
+		data.size_a = data.node_num;
 		fill_stack(&stack_a, data);
 		free(data.tab);
 		check_stack_a(stack_a);
@@ -37,15 +37,25 @@ int	main(int ac, char **av)
 		else
 		{
 			figure_para(&data);
-			while (stack_a)
+			while (data.size_a)
+			{
 				push_swap(&data, &stack_a, &stack_b);
-			// while (stack_b)
+				data.factor++;
+				figure_para(&data);
+			}
+			// check_do(&stack_a);
+			// aff(stack_a);
+			// printf("stack b\n");
+			// aff(stack_b);
+			// get_back(&stack_b);
+			// get_val_end(&stack_b, &data);
+			// while (data.size_b > 0)
 			// 	push_back(&data, &stack_b, &stack_a);
 		}
 		// aff(stack_a);
 	}
 	else
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 }
 
 int	check_stack_a(t_list *stack_a)
@@ -60,25 +70,16 @@ int	check_stack_a(t_list *stack_a)
 	exit(0);
 }
 
-void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
+void	fill_stack(t_list **stack_a, t_data data)
 {
-	t_list	*tmp;
+	t_list	*new_node;
+	int		i;
 
-	tmp = *stack_b;
-	while (tmp)
+	i = 0;
+	while (i < data.node_num)
 	{
-		if (tmp->index == data->i)
-		{
-			check_close(stack_b, data, stack_a, data->i);
-			data->i--;
-			tmp = *stack_b;
-		}
-		else if (data->size == 1)
-		{
-			write_p(stack_b, stack_a, "pa\n");
-			data->size--;
-		}
-		else
-			tmp = tmp->next;
+		new_node = ft_lstnew(data.tab[i]);
+		ft_lstadd_back(stack_a, new_node);
+		i++;
 	}
 }

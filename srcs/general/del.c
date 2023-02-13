@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 07:39:36 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:51:56 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	aff1(int *tab, int ac)
 {
@@ -26,10 +26,14 @@ void	aff1(int *tab, int ac)
 
 void	aff(t_list *stack_a)
 {
-	while (stack_a)
+	t_list *tmp;
+
+	tmp = stack_a;
+	while (tmp)
 	{
-		printf("----> %d\n", stack_a->x);
-		printf("> %d\n", stack_a->index);
-		stack_a = stack_a->next;
+		printf("----> %d\n", tmp->x);
+		printf("> %d\n", tmp->index);
+		tmp = tmp->next;
 	}
+	printf("/////\n");
 }

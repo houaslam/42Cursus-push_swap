@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 08:27:28 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:18:27 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE	1
+# endif
 
 typedef struct s_list
 {
@@ -32,11 +36,10 @@ typedef struct t_data
 	int	node_num;
 	int	*tab;
 	int	n;
-	int	start;
-	int	end;
-	int	off;
-	int	size;
+	int	size_a;
+	int	size_b;
 	int	i;
+	int	factor;
 }		t_data;
 // libft
 int		ft_lstsize(t_list *lst);
@@ -63,17 +66,9 @@ void	write_s(t_list **stack, char *str);
 void	write_rr(t_list **stack, char *str);
 void	write_p(t_list **stack_2, t_list **stack, char *str);
 
-// del
-void	aff(t_list *node);
-
-// push_swap
-void	check_int(char **str);
-void	check_double(t_data data);
-int		check_stack_a(t_list *stack_a);
+// small
 void	check_do(t_list **stack_a);
-void	check_close(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
-void	handl_arg(char **av, t_data *data);
-void	fill_stack(t_list **stack_a, t_data data);
+void	check_close_s(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
 void	small_swap(t_data data, t_list **stack_a);
 void	get_val(t_list **stack_a, t_data *data);
 void	get_val_end(t_list	**stack_a, t_data *data);
@@ -81,12 +76,28 @@ void	only_four(t_list **stack_a, t_data *data, int nb);
 void	only_five(t_list **stack_a, t_data *data);
 void	get_out_up(t_list **stack_a, t_list **stack_b, int nb);
 void	get_out_down(t_list **stack_a, t_list **stack_b, int nb);
-void	figure_para(t_data *data);
-void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
-void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);
 int		mid_index(t_list *stack_a, int max, int min);
 int		min_index(t_list *stack_a);
 int		max_index(t_list *stack_a);
+
+//general 
+void	aff(t_list *node);
+void	handl_arg(char **av, t_data *data);
+void	fill_stack(t_list **stack_a, t_data data);
+void	check_int(char **str);
+void	check_double(t_data data);
+int		check_stack_a(t_list *stack_a);
+void	main_push(int ac, char **av);
+
+//!small
+void	figure_para(t_data *data);
+int		check_index(t_list **stack_a, int nb);
+void	get_back(t_list **stack);
+void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
+void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);
+void	check_close(t_list **stack_a, t_data *data, t_list **stack_b);
+void	get_out_up_b(t_list **stack_b, t_list **stack_a,t_data *data);
+void	get_out_down_b(t_list **stack_b, t_list **stack_a,t_data *data);
 
 //split
 int		ft_dim1(char *s, char c);
@@ -94,7 +105,7 @@ char	**ft_func(char **arr, char *s, char c);
 char	**ft_split(char const *s, char c);
 char	**ft_freestr(char **arr, int p);
 
-//
+//sort
 void	sort(int *tab, int size);
 void	swap(int *a, int *b);
 void	sort_main(int *a);

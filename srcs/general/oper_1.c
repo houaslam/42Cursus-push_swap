@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:45:32 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 12:11:54 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:46:49 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	write_r(t_list **stack, char *str)
 {
@@ -23,7 +23,6 @@ void	write_s(t_list **stack, char *str)
 	s(stack);
 	write(1, str, ft_strlen(str));
 }
-
 
 void	write_rr(t_list **stack, char *str)
 {

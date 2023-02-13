@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/10 17:09:15 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:46:51 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	s(t_list **stack_a)
 {

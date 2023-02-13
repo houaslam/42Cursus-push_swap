@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   main_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 17:20:56 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/02 19:13:29 by houaslam         ###   ########.fr       */
+/*   Created: 2023/02/11 18:28:42 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/11 18:29:35 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-// void    small_swap(t_list *stack_a)
-// {
-//     if()
-// }
+int	main(int ac, char **av)
+{
+	main_push(ac, av);
+}

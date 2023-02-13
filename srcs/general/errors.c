@@ -6,11 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 08:31:07 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:20:36 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	check_int(char **str)
 {
@@ -27,7 +27,7 @@ void	check_int(char **str)
 		{
 			if (!((str[j][i] >= '0' && str[j][i] <= '9') || str[j][i] == ' '))
 			{
-				write(1, "+Error\n", 7);
+				write(2, "Error\n", 7);
 				exit(1);
 			}
 			i++;
@@ -49,7 +49,7 @@ void	check_double(t_data data)
 		{
 			if (data.tab[i] == data.tab[j] && i != j)
 			{
-				write(1, "/Error\n", 7);
+				write(2, "Error\n", 7);
 				exit(1);
 			}
 			i++;
@@ -76,7 +76,7 @@ void	handl_arg(char **av, t_data *data)
 		while (str[o])
 		{
 			data->tab[data->node_num] = ft_atoi(str[o]);
-			free(str[o]);
+			free(str[o]);		
 			o++;
 			data->node_num++;
 		}

@@ -1,30 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   outils_0.c                                         :+:      :+:    :+:   */
+/*   small_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 08:29:05 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:44:44 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-void	fill_stack(t_list **stack_a, t_data data)
-{
-	t_list	*new_node;
-	int		i;
-
-	i = 0;
-	while (i < data.node_num)
-	{
-		new_node = ft_lstnew(data.tab[i]);
-		ft_lstadd_back(stack_a, new_node);
-		i++;
-	}
-}
+#include "../../includes/push_swap.h"
 
 void	small_swap(t_data data, t_list **stack_a)
 {
@@ -62,8 +48,8 @@ void	get_val(t_list **stack_a, t_data *data)
 	{
 		if (tmp->x == max && tmp->index == -1)
 		{
-			tmp->index = data->node_num;
-			data->node_num--;
+			tmp->index = data->size_a;
+			data->size_a--;
 		}
 		tmp = tmp->next;
 	}
@@ -74,14 +60,29 @@ void	get_val_end(t_list	**stack_a, t_data *data)
 	int	k;
 	int	j;
 
-	j = data->node_num;
-	k = data->node_num;
+	j = data->size_a;
+	k = data->size_a;
 	while (k > 0)
 	{
 		get_val(stack_a, data);
 		k--;
 	}
-	data->node_num = j;
+	data->size_a = j;
+}
+
+void	only_four(t_list **stack_a, t_data *data, int nb)
+{
+	t_list	*tmp;
+	t_list	*stack_b;
+
+	(void)nb;
+	tmp = *stack_a;
+	stack_b = NULL;
+	get_val_end(&tmp, data);
+	tmp = *stack_a;
+	check_close_s(stack_a, data, &stack_b, nb);
+	check_do(stack_a);
+	write_p(&stack_b, stack_a, "pa\n");
 }
 
 void	only_five(t_list **stack_a, t_data *data)
@@ -93,8 +94,9 @@ void	only_five(t_list **stack_a, t_data *data)
 	stack_b = NULL;
 	get_val_end(&tmp, data);
 	tmp = *stack_a;
-	tmp = *stack_a;
-	check_close(stack_a, data, &stack_b, 1);
-	only_four(stack_a, data, 2);
+	check_close_s(stack_a, data, &stack_b, 1);
+	check_close_s(stack_a, data, &stack_b, 2);
+	check_do(stack_a);
+	write_p(&stack_b, stack_a, "pa\n");
 	write_p(&stack_b, stack_a, "pa\n");
 }
