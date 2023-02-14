@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/13 18:20:36 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:35:10 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_int(char **str)
 		{
 			if (!((str[j][i] >= '0' && str[j][i] <= '9') || str[j][i] == ' '))
 			{
-				write(2, "Error\n", 7);
+				write(2, "/Error\n", 7);
 				exit(1);
 			}
 			i++;
@@ -68,15 +68,15 @@ void	handl_arg(char **av, t_data *data)
 	o = 0;
 	data->node_num = 0;
 	data->tab = malloc(sizeof(int) * (data->node_num));
-	check_int(av);
 	while (av[i])
 	{
 		str = ft_split(av[i], ' ');
 		o = 0;
+		check_int(str);
 		while (str[o])
 		{
 			data->tab[data->node_num] = ft_atoi(str[o]);
-			free(str[o]);		
+			free(str[o]);
 			o++;
 			data->node_num++;
 		}
