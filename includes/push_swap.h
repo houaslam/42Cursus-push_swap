@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 12:20:04 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:28:23 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ typedef struct t_data
 {
 	int	node_num;
 	int	*tab;
-	int	n;
 	int	size_a;
 	int	size_b;
 	int	i;
 	int	factor;
+	int	n;
+	int	start;
+	int	end;
+	int	offset;
+	int	middle;
 }		t_data;
 // libft
 int		ft_lstsize(t_list *lst);
@@ -91,7 +95,7 @@ void	main_push(int ac, char **av);
 
 //!small
 void	figure_para(t_data *data, int size);
-int		check_index(t_list **stack_a, int nb);
+int	check_index(t_list **stack_a, int end, int start);
 void	get_back(t_list **stack);
 void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
 void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);

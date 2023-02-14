@@ -6,37 +6,37 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:23:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/13 10:37:38 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:10:34 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	check_index(t_list **stack_a, int nb)
+int	check_index(t_list **stack_a, int end, int start)
 {
 	t_list	*tmp;
 
 	tmp = *stack_a;
 	while (tmp)
 	{
-		if (tmp->index < nb)
+		if (tmp->index >= start && tmp->index <= end)
 			return (1);
 		tmp = tmp->next;
 	}
 	return (0);
 }
 
-void	get_back(t_list **stack)
-{
-	t_list	*tmp;
+// void	get_back(t_list **stack)
+// {
+// 	t_list	*tmp;
 
-	tmp = *stack;
-	while (tmp)
-	{
-		tmp->index = -1;
-		tmp = tmp->next;
-	}
-}
+// 	tmp = *stack;
+// 	while (tmp)
+// 	{
+// 		tmp->index = -1;
+// 		tmp = tmp->next;
+// 	}
+// }
 
 void	check_close(t_list **stack_b, t_data *data, t_list **stack_a)
 {

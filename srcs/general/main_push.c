@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 13:15:12 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:58:22 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,26 @@ void	main_push(int ac, char **av)
 		data.size_a = data.node_num;
 		fill_stack(&stack_a, data);
 		free(data.tab);
-		check_stack_a(stack_a);
+		if (check_stack_a(stack_a) == 1)
+			exit(0);
 		get_val_end(&stack_a, &data);
 		tmp = stack_a;
 		if (data.node_num <= 5)
 			small_swap(data, &tmp);
 		else
 		{
-			figure_para(&data, data.size_a);
-			while (data.size_a != 0)
+			figure_para(&data, data.node_num);
+			while (data.size_a != 0 && check_stack_a(stack_a) == 0)
 			{
 				push_swap(&data, &stack_a, &stack_b);
 				data.factor++;
-				figure_para(&data, data.size_a);
+				figure_para(&data, data.node_num);
 			}
-			while (data.size_b != 0)
-				push_back(&data, &stack_b, &stack_a);
+			// while (data.size_b != 0)
+			// {
+			// 	push_back(&data, &stack_b, &stack_a);
+			// }
 		}
-		// aff(stack_a);
 	}
 	else
 		write(1, "\n", 1);
@@ -61,7 +63,7 @@ int	check_stack_a(t_list *stack_a)
 		else
 			return (0);
 	}
-	exit(0);
+	return (1);
 }
 
 void	fill_stack(t_list **stack_a, t_data data)

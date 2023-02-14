@@ -6,7 +6,7 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/02/13 08:41:44 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/14 14:57:12 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ SRCS =  srcs/general/errors.c \
 		srcs/general/main.c \
 		srcs/general/oper.c \
 		srcs/general/oper_1.c \
-		srcs/!small/push_swap.c \
 		srcs/!small/outils_1.c \
+		srcs/!small/first_stage.c \
+		srcs/!small/second_stage.c \
 		srcs/small/index.c \
 		srcs/small/small_outils.c \
 		srcs/small/small_swap.c \
