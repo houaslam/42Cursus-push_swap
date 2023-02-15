@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 17:48:24 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:44:29 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	aff(t_list *stack_a)
 	t_list	*tmp;
 
 	tmp = stack_a;
+	printf("here\n");
+	printf("++++>%d\n", stack_a->x);
 	while (tmp)
 	{
 		printf("----> %d\n", tmp->x);
