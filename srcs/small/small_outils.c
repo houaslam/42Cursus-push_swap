@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:34:44 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/13 18:17:37 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:41:28 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ void	check_do(t_list **stack_a)
 		write_s(stack_a, "sa\n");
 		write_rr(stack_a, "rra\n");
 	}
-	else if ((*stack_a)->index == mid && (*stack_a)->next->index == max \
+	check_do_2(stack_a, mid, max, min);
+}
+
+void	check_do_2(t_list **stack_a, int mid, int max, int min)
+{
+	if ((*stack_a)->index == mid && (*stack_a)->next->index == max \
 	&& (*stack_a)->next->next->index == min)
 		write_rr(stack_a, "rra\n");
 	else if ((*stack_a)->index == max && (*stack_a)-> next->index == min && \

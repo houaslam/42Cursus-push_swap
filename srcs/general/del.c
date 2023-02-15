@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/13 11:51:56 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:48:24 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	aff1(int *tab, int ac)
 
 void	aff(t_list *stack_a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = stack_a;
 	while (tmp)

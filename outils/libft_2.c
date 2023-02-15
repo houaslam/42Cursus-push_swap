@@ -6,39 +6,66 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:02:49 by houaslam          #+#    #+#             */
-/*   Updated: 2023/01/31 17:43:19 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:50:58 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	int		i;
-	int		j;
-	char	*p;
-	size_t	b;
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	int		i;
+// 	int		j;
+// 	char	*p;
+// 	size_t	b;
 
-	if (!s1 || !s2)
+// 	if (!s1 || !s2)
+// 		return (NULL);
+// 	i = 0;
+// 	j = 0;
+// 	b = ft_strlen((char *)s2);
+// 	p = (char *)malloc(sizeof(char) * (ft_strlen((char *)s1) + b) + 1);
+// 	if (!p)
+// 		return (NULL);
+// 	while (s1[i] != '\0')
+// 	{
+// 		p[i] = s1[i];
+// 		i++;
+// 	}
+// 	while (s2[j] != '\0')
+// 	{
+// 		p[i + j] = s2[j];
+// 		j++;
+// 	}
+// 	p[i + j] = '\0';
+// 	free(s1);
+// 	return (p);
+// }
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	i;
+	size_t	c;
+	char	*str;
+
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	if (s1 && !s2)
+		return (ft_strdup(s1));
+	if (!s1 && !s2)
 		return (NULL);
-	i = 0;
-	j = 0;
-	b = ft_strlen((char *)s2);
-	p = (char *)malloc(sizeof(char) * (ft_strlen((char *)s1) + b) + 1);
-	if (!p)
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
-		p[i] = s1[i];
-		i++;
-	}
-	while (s2[j] != '\0')
-	{
-		p[i + j] = s2[j];
-		j++;
-	}
-	p[i + j] = '\0';
-	return (p);
+	i = -1;
+	c = 0;
+	while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[c] != '\0')
+		str[i++] = s2[c++];
+	str[i] = '\0';
+	free(s1);
+	return (str);
 }
 
 char	*ft_strdup(const char *s)
@@ -63,22 +90,20 @@ char	*ft_strdup(const char *s)
 	return (s1);
 }
 
-char	*ft_strchr(const char *str, int c)
+int	ft_strchr(char *str, char c)
 {
-	int				i;
-	char			*p;
-	char			f;
+	int	i;
 
 	i = 0;
-	f = (char)c;
-	p = (char *)str;
-	while (p[i] != f)
+	if (str == NULL)
+		return (0);
+	while (str[i] != c)
 	{
-		if (p[i] == '\0')
-			return (NULL);
+		if (str[i] == '\0')
+			return (0);
 		i++;
 	}
-	return (p + i);
+	return (1);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

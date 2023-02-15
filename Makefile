@@ -6,7 +6,7 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/02/14 14:57:12 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/15 09:25:06 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,19 +35,22 @@ SRCS =  srcs/general/errors.c \
 
 B_SRCS =  srcs/general/errors.c \
 		  srcs/general/del.c \
-		  srcs/general/main.c \
 		  srcs/general/oper.c \
 		  srcs/general/oper_1.c \
-		  srcs/!small/push_swap.c \
 		  srcs/!small/outils_1.c \
+		  srcs/!small/first_stage.c \
+		  srcs/!small/second_stage.c \
 		  srcs/small/index.c \
 		  srcs/small/small_outils.c \
 		  srcs/small/small_swap.c \
 		  outils/ft_split.c \
 		  outils/sort.c \
+		  outils/gnl.c \
+		  outils/gnl_outils.c \
 		  outils/libft_3.c \
 		  outils/libft_2.c \
 		  outils/libft.c \
+		  srcs/general/main_push.c \
 		  srcs/bonus/main.c
 
 all : ${NAME}
@@ -72,3 +75,4 @@ fclean : clean
 re: fclean all
 
 mine : all clean
+yours : bonus clean

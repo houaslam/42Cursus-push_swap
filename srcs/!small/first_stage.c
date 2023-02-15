@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:45:39 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 16:58:14 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:47:33 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,13 @@ void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b)
 	tmp = *stack_a;
 	while (check_index(stack_a, data->end, data->start) == 1)
 	{
-		// aff(*stack_a);
 		if (tmp->index >= data->start && tmp->index <= data->end)
 		{
 			write_p(stack_a, stack_b, "pb\n");
 			data->size_a--;
 			data->size_b++;
 			if (tmp->index <= data->middle && data->size_b >= 2)
-			{
-				// printf("here\n");
-				// printf("s = %d\n", data->start);
-				// printf("e = %d\n", data->end);
-				// printf("m = %d\n", data->middle);
-				// printf("i = %d\n", tmp->index);
 				write_r(stack_b, "rb\n");
-			}
 		}
 		else
 		{
@@ -50,9 +42,7 @@ void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b)
 
 void	figure_para(t_data *data, int size)
 {
-	if (size == 1)
-		data->n = 1;
-	else if (size <= 10)
+	if (size <= 10)
 		data->n = 5;
 	else if (size <= 150)
 		data->n = 8;

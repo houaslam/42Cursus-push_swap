@@ -6,13 +6,13 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:25:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 13:28:07 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:26:53 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
@@ -49,4 +49,19 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (nb * sign);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	exit(1);
 }

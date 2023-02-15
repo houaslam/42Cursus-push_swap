@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 20:23:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 16:10:34 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:47:59 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,6 @@ int	check_index(t_list **stack_a, int end, int start)
 	}
 	return (0);
 }
-
-// void	get_back(t_list **stack)
-// {
-// 	t_list	*tmp;
-
-// 	tmp = *stack;
-// 	while (tmp)
-// 	{
-// 		tmp->index = -1;
-// 		tmp = tmp->next;
-// 	}
-// }
 
 void	check_close(t_list **stack_b, t_data *data, t_list **stack_a)
 {

@@ -6,19 +6,17 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:30:01 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 16:57:05 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:35:14 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
 
 void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
 {
 	t_list	*tmp;
 
 	tmp = *stack_b;
-	printf("%d\n", data->size_b);
 	while (data->size_b != 0)
 	{
 		check_max(stack_b, data, stack_a);

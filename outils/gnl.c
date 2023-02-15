@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 18:47:26 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 18:47:52 by houaslam         ###   ########.fr       */
+/*   Created: 2023/02/14 20:01:21 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/15 15:13:02 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 char	*ft_handle(char *buf)
 {
@@ -87,7 +87,7 @@ char	*ft_check(char *buf, int fd)
 		res[i] = '\0';
 		buf = ft_strjoin(buf, res);
 	}
-	free(res);
+	free (res);
 	return (buf);
 }
 
@@ -104,30 +104,4 @@ char	*get_next_line(int fd)
 	line = after(buf);
 	buf = ft_handle(buf);
 	return (line);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	size_t	i;
-	size_t	c;
-	char	*str;
-
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	if (s1 && !s2)
-		return (ft_strdup(s1));
-	if (!s1 && !s2)
-		return (NULL);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = -1;
-	c = 0;
-	while (s1[++i] != '\0')
-			str[i] = s1[i];
-	while (s2[c] != '\0')
-		str[i++] = s2[c++];
-	str[i] = '\0';
-	free(s1);
-	return (str);
 }
