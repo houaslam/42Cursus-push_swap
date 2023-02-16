@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 17:44:29 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:47:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,32 @@ void	aff1(int *tab, int ac)
 	}
 }
 
+void	aff2(t_list *stack_a, t_list *stack_b)
+{
+	t_list	*tmp;
+	t_list	*tmpb;
+
+	tmp = stack_a;
+	tmpb = stack_b;
+	while (1)
+	{
+		printf("|  %d    |\t|   %d  |\n", tmp->x, tmpb->x);
+		printf("|> %d   |\t|>  %d  |", tmp->index, tmpb->index);
+		if (tmp->next)
+			tmp = tmp->next;
+		if (tmpb->next)
+			tmpb = tmpb->next;
+		else if(!tmp->next && !tmpb->next)
+			break ;
+	}
+	printf("____\t____\n");
+}
+
 void	aff(t_list *stack_a)
 {
 	t_list	*tmp;
 
 	tmp = stack_a;
-	printf("here\n");
-	printf("++++>%d\n", stack_a->x);
 	while (tmp)
 	{
 		printf("----> %d\n", tmp->x);
