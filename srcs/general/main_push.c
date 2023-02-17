@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/16 16:01:13 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 10:36:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,13 @@ void	check_cases(t_list *stack_a, t_data data)
 			data.factor++;
 			figure_para(&data, data.node_num);
 		}
-		// aff(stack_a);
-		// while (data.size_b != 0)
-		// {
-			push_back(&data, &stack_b, &stack_a);
-		// 	sleep(1);
-		// }
+		// aff(stack_b);
+		while (data.size_b != 0)
+		{
+		// 	push_back(&data, &stack_b, &stack_a);
+			get_out(&stack_b, &data, &stack_a, data.size_b);
+		}
+		aff(stack_a);
 	}
 	// system("leaks push_swap");
 }

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:30:01 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/16 16:14:50 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 10:34:39 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,37 @@ void	get_out_down_(t_list **stack_b, t_list **stack_a, t_data *data, int nb)
 	}
 }
 
-void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
-{
-	t_list	*tmp;
-	int		i;
-	int		max;
+// void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
+// {
+// 	t_list	*tmp;
+// 	// int		i;
+// 	// int		max;
 
-	tmp = *stack_b;
-	while (tmp)
-	{
-		if ()
-	}
-}
+// 	tmp = *stack_b;
+// 	if (tmp->index == data->size_b)
+// 	{
+// 		write_p(stack_b, stack_a, "pa\n");
+// 		data->size_b--;
+// 	}
+// 	else if (data->size_a >= 2)
+// 	{
+// 		write_p(stack_a, stack_a, "pa\n");
+// 		write_r(stack_a, "ra\n");
+// 		data->size_b--;
+// 		data->down++;
+// 	}
+// 		// else
+// 		// 	get_out(stack_b, data, stack_a, data->size_b);
+// 	// aff(*stack_b);
+// }
+
+// void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
+// {
+// 	t_list	*tmp;
+// 	// int		i;
+// 	// int		max;
+
+// 	tmp = *stack_b;
+// 	while ()
+// 	// aff(*stack_b);
+// }
