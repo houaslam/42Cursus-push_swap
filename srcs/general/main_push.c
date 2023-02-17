@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 10:36:05 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:44:48 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	main_push(int ac, char **av)
 			exit(0);
 		get_val_end(&stack_a, &data);
 		check_cases(stack_a, data);
-		// system("leaks push_swap");
 	}
 	else
 		write(1, "\n", 1);
@@ -49,21 +48,22 @@ void	check_cases(t_list *stack_a, t_data data)
 	else
 	{
 		figure_para(&data, data.node_num);
-		while (data.size_a != 0 && check_stack_a(stack_a) == 0)
+		while (data.size_a != 0)
 		{
 			push_swap(&data, &stack_a, &stack_b);
 			data.factor++;
 			figure_para(&data, data.node_num);
 		}
-		// aff(stack_b);
-		while (data.size_b != 0)
-		{
-		// 	push_back(&data, &stack_b, &stack_a);
-			get_out(&stack_b, &data, &stack_a, data.size_b);
-		}
+		data.k = data.size_b;
 		aff(stack_a);
+		while (data.size_b != 0)
+			push_back(&data, &stack_b, &stack_a);
+		while (data.down > 0)
+		{
+			write_rr(&stack_a, "rra\n");
+			data.down--;
+		}
 	}
-	// system("leaks push_swap");
 }
 
 int	check_stack_a(t_list *stack_a)

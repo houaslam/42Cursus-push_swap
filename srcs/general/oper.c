@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 17:52:28 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:34:32 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,20 @@ void	rr(t_list **stack_a)
 	t_list	*t;
 
 	tmp = *stack_a;
-	t = ft_lstlast(tmp);
-	while (tmp)
+	if (ft_lstsize(*stack_a) >= 2)
 	{
-		if (tmp->next->next == NULL)
+		t = ft_lstlast(tmp);
+		while (tmp)
 		{
-			tmp->next = NULL;
-			break ;
+			if (tmp->next->next == NULL)
+			{
+				tmp->next = NULL;
+				break ;
+			}
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
+		ft_lstadd_front(stack_a, t);
 	}
-	ft_lstadd_front(stack_a, t);
 }
 
 void	r(t_list **stack_a)
@@ -65,8 +68,11 @@ void	r(t_list **stack_a)
 	t_list	*t;
 
 	tmp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	t = ft_lstlast(*stack_a);
-	tmp->next = NULL;
-	t->next = tmp;
+	if (ft_lstsize(*stack_a) >= 2)
+	{
+		*stack_a = (*stack_a)->next;
+		t = ft_lstlast(*stack_a);
+		tmp->next = NULL;
+		t->next = tmp;
+	}
 }

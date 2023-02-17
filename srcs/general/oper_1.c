@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 00:45:32 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 14:26:48 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:47:00 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,39 @@
 
 void	write_r(t_list **stack, char *str)
 {
-	r(stack);
-	write(1, str, ft_strlen(str));
+	if (ft_lstsize(*stack) >= 2)
+	{
+		r(stack);
+		write(1, str, ft_strlen(str));
+	}
+	return ;
 }
 
 void	write_s(t_list **stack, char *str)
 {
-	s(stack);
-	write(1, str, ft_strlen(str));
+	if (ft_lstsize(*stack) >= 2)
+	{
+		s(stack);
+		write(1, str, ft_strlen(str));
+	}
+	return ;
 }
 
 void	write_rr(t_list **stack, char *str)
 {
-	rr(stack);
-	write(1, str, ft_strlen(str));
+	if (ft_lstsize(*stack) >= 2)
+	{
+		rr(stack);
+		write(1, str, ft_strlen(str));
+	}
+	return ;
 }
 
 void	write_p(t_list **stack_2, t_list **stack, char *str)
 {
-	p(stack_2, stack);
-	write(1, str, ft_strlen(str));
+	if (ft_lstsize(*stack_2) > 0)
+	{
+		p(stack_2, stack);
+		write(1, str, ft_strlen(str));
+	}
 }

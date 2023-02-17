@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 12:53:29 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/14 18:30:50 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:49:11 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
+	if (!lst)
+		return (0);
 	while (lst)
 	{
 		i++;

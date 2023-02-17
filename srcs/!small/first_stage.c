@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:45:39 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 10:40:38 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:06:39 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	figure_para(t_data *data, int size)
 	else if (size <= 150)
 		data->n = 8;
 	else if (size > 150)
-		data->n = 20;
+		data->n = 18;
 	data->middle = size / 2;
 	data->offset = (size / data->n) * data->factor;
 	data->start = data->middle - data->offset;

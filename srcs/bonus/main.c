@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:00:36 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 18:19:48 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:52:32 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,23 +64,23 @@ void	compare_exec(char **src, t_list	*stack_a, t_list *stack_b)
 	while (src[i])
 	{
 		printf("-->%s", src[i]);
-		if (strncmp(src[i], "pa", 2) == 1)
+		if (strncmp(src[i], "pa\n", 2) == 1)
 			p(&stack_a, &stack_b);
-		else if (strncmp(src[i], "pb", 2) == 1)
+		else if (strncmp(src[i], "pb\n", 2) == 1)
 			p(&stack_b, &stack_a);
-		else if (strncmp(src[i], "pa", 2) == 1)
+		else if (strncmp(src[i], "pa\n", 2) == 1)
 			p(&stack_a, &stack_b);
-		else if (strncmp(src[i], "ra", 2) == 1)
+		else if (strncmp(src[i], "ra\n", 2) == 1)
 			r(&stack_a);
-		else if (strncmp(src[i], "rb", 2) == 1)
+		else if (strncmp(src[i], "rb\n", 2) == 1)
 			r(&stack_b);
-		else if (strncmp(src[i], "rra", 3) == 1)
+		else if (strncmp(src[i], "rra\n", 3) == 1)
 			rr(&stack_a);
-		else if (strncmp(src[i], "rrb", 3) == 1)
+		else if (strncmp(src[i], "rrb\n", 3) == 1)
 			rr(&stack_b);
-		else if (strncmp(src[i], "sa", 2) == 1)
+		else if (strncmp(src[i], "sa\n", 2) == 1)
 			s(&stack_a);
-		else if (strncmp(src[i], "sb", 2) == 1)
+		else if (strncmp(src[i], "sb\n", 2) == 1)
 			s(&stack_b);
 		i++;
 	}

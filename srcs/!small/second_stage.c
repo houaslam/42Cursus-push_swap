@@ -6,46 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:30:01 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 10:34:39 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/17 17:45:02 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-int	fastest_way_out(t_list **stack_b, t_data *data)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = *stack_b;
-	i = 0;
-	data->max = -1;
-	data->max_2 = -1;
-	while (tmp)
-	{
-		if (tmp->index == max_index(*stack_b))
-		{
-			data->max = i;
-			// printf("***%d\n", i);
-		}
-		else if (tmp->index == max_index(*stack_b) - 1)
-		{
-			data->max_2 = i;
-			// printf("*2*%d\n", i);
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	// printf("----%d\n", data->size_b);
-	// aff(*stack_b);
-	// sleep(2);
-	// if (data->max == -1 || data->max_2 == -1)
-	// 	return (2);
-	if (data->middle - data->max < data->middle - data->max_2)
-		return (0);
-	else
-		return (1);
-}
 
 void	get_out(t_list **stack_b, t_data *data, t_list **stack_a, int res)
 {
@@ -110,37 +75,42 @@ void	get_out_down_(t_list **stack_b, t_list **stack_a, t_data *data, int nb)
 	}
 }
 
-// void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
-// {
-// 	t_list	*tmp;
-// 	// int		i;
-// 	// int		max;
+void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
+{
+	t_list	*tmp;
+	t_list *last;
 
-// 	tmp = *stack_b;
-// 	if (tmp->index == data->size_b)
-// 	{
-// 		write_p(stack_b, stack_a, "pa\n");
-// 		data->size_b--;
-// 	}
-// 	else if (data->size_a >= 2)
-// 	{
-// 		write_p(stack_a, stack_a, "pa\n");
-// 		write_r(stack_a, "ra\n");
-// 		data->size_b--;
-// 		data->down++;
-// 	}
-// 		// else
-// 		// 	get_out(stack_b, data, stack_a, data->size_b);
-// 	// aff(*stack_b);
-// }
-
-// void	push_back(t_data *data, t_list **stack_b, t_list **stack_a)
-// {
-// 	t_list	*tmp;
-// 	// int		i;
-// 	// int		max;
-
-// 	tmp = *stack_b;
-// 	while ()
-// 	// aff(*stack_b);
-// }
+	tmp = *stack_b;
+	last = ft_lstlast(*stack_a);
+	if (tmp->index == data->k)
+	{
+		write_p(stack_b, stack_a, "pa\n");
+		data->size_b--;
+		data->k--;
+	}
+	else if (search_in_sb(stack_b, data->k) == 0 && data->down != 0)
+	{
+		write_rr(stack_a, "rra\n");
+		data->k--;
+		data->down--;
+	}
+	else if (data->down == 0)
+	{
+		write_p(stack_b, stack_a, "pa\n");
+		write_r(stack_a, "ra\n");
+		data->size_b--;
+		data->down++;
+	}
+	else if (data->down > 0 && last && tmp->index == last->index + 1)
+	{
+		write_p(stack_b, stack_a, "pa\n");
+		write_r(stack_a, "ra\n");
+		data->size_b--;
+		data->down++;
+	}
+	else
+	{
+		get_out(stack_b, data, stack_a, data->k);
+		data->k--;
+	}
+}
