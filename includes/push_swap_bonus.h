@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/19 20:41:44 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:24:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 void	ft_putstr_fd(char *s, int fd);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 
 // tools
 void	s(t_list **stack_a);
@@ -95,7 +96,7 @@ void	check_int(char **str);
 void	check_double(t_data *data);
 int		check_stack_a(t_list *stack_a);
 void	main_push(int ac, char **av);
-void	check_cases(t_list *stack_a, t_data data);
+void	check_cases(t_list *stack_a, t_data *data);
 
 //!small
 void	get_back(t_list **stack);
@@ -118,7 +119,7 @@ char	**ft_freestr(char **arr, int p);
 
 void	aff1(int *tab, int ac);
 //bonus
-void	compare_exec(char **src, t_list	*stack_a, t_list *stack_b);
+void	compare_exec(char *src, t_list	*stack_a, t_list *stack_b);
 
 //gnl
 char	*get_next_line(int fd);

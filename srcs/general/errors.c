@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/19 20:43:04 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:07:32 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ void	handl_arg(char **av, t_data *data)
 	i = 1;
 	o = 0;
 	data->node_num = 0;
-	data->tab = malloc(sizeof(int) * (data->node_num));
+	data->tab = malloc(sizeof(int) * 3);
 	while (av[i])
 	{
 		str = ft_split(av[i], ' ');
 		if (str[0] == NULL)
 			ft_putstr_fd("Error\n", 2);
-		o = 0;
 		check_int(str);
+		o = 0;
 		while (str[o])
 		{
 			data->tab[data->node_num] = ft_atoi(str[o]);

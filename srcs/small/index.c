@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:36:54 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/11 15:37:27 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:35:16 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	max_index(t_list *stack_a)
 			max = tmp->index;
 		tmp = tmp->next;
 	}
+	free (tmp);
 	return (max);
 }
 

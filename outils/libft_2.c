@@ -6,41 +6,11 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 13:02:49 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 14:50:58 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:48:09 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	int		i;
-// 	int		j;
-// 	char	*p;
-// 	size_t	b;
-
-// 	if (!s1 || !s2)
-// 		return (NULL);
-// 	i = 0;
-// 	j = 0;
-// 	b = ft_strlen((char *)s2);
-// 	p = (char *)malloc(sizeof(char) * (ft_strlen((char *)s1) + b) + 1);
-// 	if (!p)
-// 		return (NULL);
-// 	while (s1[i] != '\0')
-// 	{
-// 		p[i] = s1[i];
-// 		i++;
-// 	}
-// 	while (s2[j] != '\0')
-// 	{
-// 		p[i + j] = s2[j];
-// 		j++;
-// 	}
-// 	p[i + j] = '\0';
-// 	free(s1);
-// 	return (p);
-// }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -127,4 +97,24 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		p[i++] = s[start++];
 	p[i] = '\0';
 	return (p);
+}
+
+int	ft_strncmp(char *s1, char *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*str;
+	unsigned char	*str1;
+
+	i = 0;
+	str = (unsigned char *)s1;
+	str1 = (unsigned char *)s2;
+	while ((i < n) && (str[i] != '\0' || str1[i] != '\0'))
+	{
+		if (str[i] > str1[i])
+			return (1);
+		else if (str[i] < str1[i])
+			return (-1);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/13 12:44:44 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:33:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ void	small_swap(t_data data, t_list **stack_a)
 	}
 	else if (data.node_num == 3)
 		check_do(stack_a);
-	else if (data.node_num == 4)
-		only_four(stack_a, &data, 1);
-	else if (data.node_num == 5)
-		only_five(stack_a, &data);
+	// else if (data.node_num == 4)
+	// 	only_four(stack_a, &data, 1);
+	// else if (data.node_num == 5)
+	// 	only_five(stack_a, &data);
+	//system ("leaks push_swap");
 }
 
 void	get_val(t_list **stack_a, t_data *data)

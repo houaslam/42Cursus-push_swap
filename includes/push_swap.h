@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/19 20:39:20 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:23:28 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 	int				x;
 	struct s_list	*next;
 	int				index;
-	int				num;
 }					t_list;
 
 typedef struct t_data
@@ -96,12 +95,13 @@ int		max_index(t_list *stack_a);
 //general 
 void	aff(t_list *node);
 void	handl_arg(char **av, t_data *data);
-void	fill_stack(t_list **stack_a, t_data data);
+void	fill_stack(t_list **stack_a, t_data *data);
 void	check_int(char **str);
 void	check_double(t_data *data);
 int		check_stack_a(t_list *stack_a);
 void	main_push(int ac, char **av);
 void	check_cases(t_list *stack_a, t_data data);
+void	free_list(t_list **lst);
 
 //!small
 void	get_back(t_list **stack);
