@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 14:30:31 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:43:04 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_int(char **str)
 		{
 			if (!((str[j][i] >= '0' && str[j][i] <= '9') || str[j][i] == ' '))
 			{
-				write(2, "/Error\n", 7);
+				write(2, "Error\n", 7);
 				exit(1);
 			}
 			i++;

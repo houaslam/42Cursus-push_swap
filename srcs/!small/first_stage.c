@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:45:39 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 14:06:39 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:41:02 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b)
 		}
 			tmp = *stack_a;
 	}
+	data->factor++;
 }
 
 void	figure_para(t_data *data, int size)

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:00:36 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 14:52:32 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:23:23 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ int	main(int ac, char **av)
 			free(hold);
 		}
 		res = ft_split(ptr, '\n');
-		// while (*res)
-		// {
-		// 	printf("=======>%s", *res);
-		// 	res++;
-		// }
 		free(ptr);
 		compare_exec(res, stack_a, stack_b);
 		if (check_stack_a(stack_a) == 1)

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 17:44:48 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:41:30 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,9 @@ void	check_cases(t_list *stack_a, t_data data)
 		while (data.size_a != 0)
 		{
 			push_swap(&data, &stack_a, &stack_b);
-			data.factor++;
 			figure_para(&data, data.node_num);
 		}
 		data.k = data.size_b;
-		aff(stack_a);
 		while (data.size_b != 0)
 			push_back(&data, &stack_b, &stack_a);
 		while (data.down > 0)

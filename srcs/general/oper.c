@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:17:09 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/17 11:34:32 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:27:58 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	rr(t_list **stack_a)
 	t_list	*tmp;
 	t_list	*t;
 
-	tmp = *stack_a;
 	if (ft_lstsize(*stack_a) >= 2)
 	{
+		tmp = *stack_a;
 		t = ft_lstlast(tmp);
 		while (tmp)
 		{

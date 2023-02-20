@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/15 17:38:35 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/19 20:41:44 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,6 @@ char	**ft_freestr(char **arr, int p);
 void	aff1(int *tab, int ac);
 //bonus
 void	compare_exec(char **src, t_list	*stack_a, t_list *stack_b);
-
-
 
 //gnl
 char	*get_next_line(int fd);
