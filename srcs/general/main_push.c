@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/20 14:32:08 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:12:57 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,56 +23,53 @@ void	main_push(int ac, char **av)
 		stack_a = NULL;
 		data.factor = 1;
 		handl_arg(av, &data);
-		data.size_a = data.node_num;
 		fill_stack(&stack_a, &data);
-		free(data.tab);
+		get_val_end(&stack_a, &data);
 		if (check_stack_a(stack_a) == 1)
 			exit(0);
-		get_val_end(&stack_a, &data);
-		check_cases(stack_a, data);
-		system ("leaks push_swap");
-		//while(1);
+		data.node_num = data.size_a;
+		check_cases(&stack_a, data);
 	}
 	else
 		write(1, "\n", 1);
-		
 }
 
-void	check_cases(t_list *stack_a, t_data data)
+void	check_cases(t_list **stack_a, t_data data)
 {
 	t_list	*stack_b;
-	t_list	*down;
 
 	stack_b = NULL;
-	down = NULL;
 	data.down = 0;
-	if (data.node_num <= 5)
-		small_swap(data, &stack_a);
-	// if (data.node_num > 5)
-	// {
-	// 	figure_para(&data, data.node_num);
-	// 	while (data.size_a != 0)
-	// 	{
-	// 		push_swap(&data, &stack_a, &stack_b);
-	// 		figure_para(&data, data.node_num);
-	// 	}
-	// 	data.k = data.size_b;
-	// 	while (data.size_b != 0)
-	// 		push_back(&data, &stack_b, &stack_a);
-	// 	while (data.down > 0)
-	// 	{
-	// 		write_rr(&stack_a, "rra\n");
-	// 		data.down--;
-	// 	}
-	// }
+	if (data.size_a <= 5)
+		small_swap(data, stack_a);
+	else
+	{
+		figure_para(&data, data.size_a);
+		while (data.size_a != 0)
+		{
+			push_swap(&data, stack_a, &stack_b);
+			figure_para(&data, data.node_num);
+		}
+		data.k = data.size_b;
+		while (data.size_b != 0)
+			push_back(&data, &stack_b, stack_a);
+		while (data.down > 0)
+		{
+			write_rr(stack_a, "rra\n");
+			data.down--;
+		}
+	}
 }
 
 int	check_stack_a(t_list *stack_a)
 {
-	while (stack_a->next)
+	t_list	*tmp;
+
+	tmp = stack_a;
+	while (tmp->next)
 	{
-		if (stack_a->x < stack_a->next->x)
-			stack_a = stack_a->next;
+		if (tmp->index < tmp->next->index)
+			tmp = tmp->next;
 		else
 			return (0);
 	}
@@ -85,11 +82,10 @@ void	fill_stack(t_list **stack_a, t_data *data)
 	int		i;
 
 	i = 0;
-	while (i < data->node_num)
+	while (i < data->size_a)
 	{
 		new_node = ft_lstnew(data->tab[i]);
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
-	//free(data.tab);
 }

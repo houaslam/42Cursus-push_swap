@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:57:40 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/20 14:33:05 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:22:29 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	small_swap(t_data data, t_list **stack_a)
 {
-	if (data.node_num == 2)
+	if (data.size_a == 2)
 	{
 		while (check_stack_a(*stack_a) == 0)
 		{
@@ -22,13 +22,12 @@ void	small_swap(t_data data, t_list **stack_a)
 			write(1, "rra\n", 3);
 		}
 	}
-	else if (data.node_num == 3)
+	else if (data.size_a == 3)
 		check_do(stack_a);
-	// else if (data.node_num == 4)
-	// 	only_four(stack_a, &data, 1);
-	// else if (data.node_num == 5)
-	// 	only_five(stack_a, &data);
-	//system ("leaks push_swap");
+	else if (data.size_a == 4)
+		only_four(stack_a, &data, 1);
+	else if (data.size_a == 5)
+		only_five(stack_a, &data);
 }
 
 void	get_val(t_list **stack_a, t_data *data)

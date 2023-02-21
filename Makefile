@@ -6,14 +6,16 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/02/20 14:34:28 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/21 13:35:24 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = push_swap
 BONUS = checker
-# CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -g -fsanitize=address -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+
 
 SRCS =  srcs/general/errors.c \
 		srcs/general/del.c \

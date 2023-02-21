@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/20 14:24:19 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:59:53 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,27 @@ typedef struct s_list
 	int				x;
 	struct s_list	*next;
 	int				index;
-	int				num;
 }					t_list;
 
 typedef struct t_data
 {
-	int	node_num;
-	int	*tab;
-	int	size_a;
-	int	size_b;
-	int	i;
-	int	factor;
-	int	n;
-	int	start;
-	int	end;
-	int	offset;
-	int	middle;
+	int		node_num;
+	int		*tab;
+	int		inst;
+	int		size_a;
+	int		size_b;
+	int		i;
+	int		factor;
+	int		n;
+	int		start;
+	int		end;
+	int		offset;
+	int		middle;
+	int		max;
+	int		max_2;
+	int		down;
+	int		k;
+	int		ind;
 }		t_data;
 // libft
 int		ft_lstsize(t_list *lst);
@@ -61,7 +66,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 void	ft_putstr_fd(char *s, int fd);
-int		ft_strncmp(char *s1, char *s2, size_t n);
+int		ft_strncmp(char *src, char *src2, int nb);
 
 // tools
 void	s(t_list **stack_a);
@@ -91,12 +96,14 @@ int		max_index(t_list *stack_a);
 //general 
 void	aff(t_list *node);
 void	handl_arg(char **av, t_data *data);
-void	fill_stack(t_list **stack_a, t_data data);
+void	fill_stack(t_list **stack_a, t_data *data);
 void	check_int(char **str);
 void	check_double(t_data *data);
 int		check_stack_a(t_list *stack_a);
 void	main_push(int ac, char **av);
-void	check_cases(t_list *stack_a, t_data *data);
+void	check_cases(t_list **stack_a, t_data data);
+void	free_list(t_list **lst);
+void	compare_exec(char *src, t_list	**stack_a, t_list **stack_b);
 
 //!small
 void	get_back(t_list **stack);
@@ -104,12 +111,9 @@ void	figure_para(t_data *data, int size);
 int		check_index(t_list **stack_a, int end, int start);
 void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
 void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);
-void	check_max(t_list **stack_b, t_data *data, t_list **stack_a);
-void	get_out_up_(t_list **stack_a, t_list **stack_b, t_data *data);
-void	check_close(t_list **stack_a, t_data *data, t_list **stack_b);
-void	get_out_up_b(t_list **stack_b, t_list **stack_a, t_data *data);
-void	get_out_down_(t_list **stack_a, t_list **stack_b, t_data *data);
-void	get_out_down_b(t_list **stack_b, t_list **stack_a, t_data *data);
+void	get_out(t_list **stack_b, t_data *data, t_list **stack_a, int res);
+int		search_in_sb(t_list **stack_b, int nb);
+void	complex_swap(t_data *data, t_list **stack_a, t_list **stack_b);
 
 //split
 int		ft_dim1(char *s, char c);
@@ -118,8 +122,6 @@ char	**ft_split(char const *s, char c);
 char	**ft_freestr(char **arr, int p);
 
 void	aff1(int *tab, int ac);
-//bonus
-void	compare_exec(char *src, t_list	*stack_a, t_list *stack_b);
 
 //gnl
 char	*get_next_line(int fd);

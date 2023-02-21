@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:39:15 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/20 09:33:11 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/21 17:49:42 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	t_list	*tmp;
+
+	tmp = lst;
 	if (!lst)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	return (tmp);
 }

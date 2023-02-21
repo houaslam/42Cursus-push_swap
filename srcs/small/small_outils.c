@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 15:34:44 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/20 14:47:45 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:44:40 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	check_close_s(t_list **stack_a, t_data *data, t_list **stack_b, int nb)
 	{
 		if (tmp->index == nb)
 		{
-			if (i < data->node_num / 2)
+			if (i < data->size_a / 2)
 				get_out_up(stack_a, stack_b, nb);
-			else if (i >= data->node_num / 2)
+			else if (i >= data->size_a / 2)
 				get_out_down(stack_a, stack_b, nb);
 		}
 		tmp = tmp->next;
