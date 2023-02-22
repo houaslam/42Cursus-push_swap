@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del.c                                              :+:      :+:    :+:   */
+/*   useless_op.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 18:06:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/21 13:23:03 by houaslam         ###   ########.fr       */
+/*   Created: 2023/02/22 10:50:38 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/22 13:01:31 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	aff1(int *tab, int ac)
+void	r_r(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-
-	i = 0;
-	while (i < ac - 1)
-	{
-		printf("-**>%d\n", tab[i]);
-		i++;
-	}
+	r(stack_b);
+	r(stack_a);
 }
 
-void	aff(t_list *stack_a)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
+	s(stack_b);
+	s(stack_a);
+}
 
-	tmp = stack_a;
-	while (tmp)
-	{
-		printf("----> %d\n", tmp->x);
-		printf("> %d\n", tmp->index);
-		tmp = tmp->next;
-	}
-	printf("/////\n");
+void	rrr(t_list **stack_a, t_list **stack_b)
+{
+	rr(stack_b);
+	rr(stack_a);
 }

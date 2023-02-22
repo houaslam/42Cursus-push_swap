@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/21 17:59:53 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:32:48 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,7 @@ typedef struct t_data
 {
 	int		node_num;
 	int		*tab;
-	int		inst;
 	int		size_a;
-	int		size_b;
-	int		i;
-	int		factor;
-	int		n;
-	int		start;
-	int		end;
-	int		offset;
-	int		middle;
-	int		max;
-	int		max_2;
-	int		down;
-	int		k;
 	int		ind;
 }		t_data;
 // libft
@@ -57,7 +44,6 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int i);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
 size_t	ft_strlen(char *str);
 int		ft_strchr(char *str, char c);
 int		ft_atoi(const char *str);
@@ -73,55 +59,30 @@ void	s(t_list **stack_a);
 void	p(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_a);
 void	r(t_list **stack_a);
+void	r_r(t_list **stack_a, t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	write_r(t_list **stack, char *str);
 void	write_s(t_list **stack, char *str);
 void	write_rr(t_list **stack, char *str);
 void	write_p(t_list **stack_2, t_list **stack, char *str);
 
-// small
-void	check_do(t_list **stack_a);
-void	check_do_2(t_list **stack_a, int mid, int max, int min);
-void	check_close_s(t_list **stack_a, t_data *data, t_list **stack_b, int nb);
-void	small_swap(t_data data, t_list **stack_a);
+//general 
 void	get_val(t_list **stack_a, t_data *data);
 void	get_val_end(t_list	**stack_a, t_data *data);
-void	only_four(t_list **stack_a, t_data *data, int nb);
-void	only_five(t_list **stack_a, t_data *data);
-void	get_out_up(t_list **stack_a, t_list **stack_b, int nb);
-void	get_out_down(t_list **stack_a, t_list **stack_b, int nb);
-int		mid_index(t_list *stack_a, int max, int min);
-int		min_index(t_list *stack_a);
-int		max_index(t_list *stack_a);
-
-//general 
-void	aff(t_list *node);
 void	handl_arg(char **av, t_data *data);
 void	fill_stack(t_list **stack_a, t_data *data);
 void	check_int(char **str);
 void	check_double(t_data *data);
 int		check_stack_a(t_list *stack_a);
-void	main_push(int ac, char **av);
-void	check_cases(t_list **stack_a, t_data data);
-void	free_list(t_list **lst);
 void	compare_exec(char *src, t_list	**stack_a, t_list **stack_b);
-
-//!small
-void	get_back(t_list **stack);
-void	figure_para(t_data *data, int size);
-int		check_index(t_list **stack_a, int end, int start);
-void	push_swap(t_data *data, t_list **stack_a, t_list **stack_b);
-void	push_back(t_data *data, t_list **stack_b, t_list **stack_a);
-void	get_out(t_list **stack_b, t_data *data, t_list **stack_a, int res);
-int		search_in_sb(t_list **stack_b, int nb);
-void	complex_swap(t_data *data, t_list **stack_a, t_list **stack_b);
+void	ok_or_ko(t_data *data, t_list **stack_a);
 
 //split
 int		ft_dim1(char *s, char c);
 char	**ft_func(char **arr, char *s, char c);
 char	**ft_split(char const *s, char c);
 char	**ft_freestr(char **arr, int p);
-
-void	aff1(int *tab, int ac);
 
 //gnl
 char	*get_next_line(int fd);

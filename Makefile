@@ -6,19 +6,18 @@
 #    By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:26:10 by houaslam          #+#    #+#              #
-#    Updated: 2023/02/21 13:35:24 by houaslam         ###   ########.fr        #
+#    Updated: 2023/02/22 10:51:45 by houaslam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = push_swap
 BONUS = checker
-# CFLAGS = -g -fsanitize=address -Wall -Wextra -Werror
 CFLAGS = -Wall -Wextra -Werror
 
 
 SRCS =  srcs/general/errors.c \
-		srcs/general/del.c \
+		srcs/general/useless_op.c \
 		srcs/general/main.c \
 		srcs/general/oper.c \
 		srcs/general/oper_1.c \
@@ -36,7 +35,7 @@ SRCS =  srcs/general/errors.c \
 		srcs/general/main_push.c
 
 B_SRCS =  srcs/general/errors.c \
-		  srcs/general/del.c \
+		  srcs/general/useless_op.c \
 		  srcs/general/oper.c \
 		  srcs/general/oper_1.c \
 		  srcs/!small/outils_1.c \
@@ -56,7 +55,6 @@ B_SRCS =  srcs/general/errors.c \
 		  srcs/bonus/main.c
 
 all : ${NAME}
-#  : ${BONUS}
 
 OBJ = ${SRCS:.c=.o}
 B_OBJ = ${B_SRCS:.c=.o}
@@ -75,6 +73,3 @@ fclean : clean
 	rm -f $(NAME)
 	rm -f $(BONUS)
 re: fclean all
-
-mine : all clean
-yours : bonus clean

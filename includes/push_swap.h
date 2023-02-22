@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/21 13:40:15 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:32:35 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ void	s(t_list **stack_a);
 void	p(t_list **stack_a, t_list **stack_b);
 void	rr(t_list **stack_a);
 void	r(t_list **stack_a);
+void	r_r(t_list **stack_a, t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
 void	write_r(t_list **stack, char *str);
 void	write_s(t_list **stack, char *str);
 void	write_rr(t_list **stack, char *str);
@@ -93,7 +96,6 @@ int		min_index(t_list *stack_a);
 int		max_index(t_list *stack_a);
 
 //general 
-void	aff(t_list *node);
 void	handl_arg(char **av, t_data *data);
 void	fill_stack(t_list **stack_a, t_data *data);
 void	check_int(char **str);
@@ -118,8 +120,6 @@ int		ft_dim1(char *s, char c);
 char	**ft_func(char **arr, char *s, char c);
 char	**ft_split(char const *s, char c);
 char	**ft_freestr(char **arr, int p);
-
-void	aff1(int *tab, int ac);
 
 //gnl
 char	*get_next_line(int fd);

@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 18:00:36 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/21 18:25:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:01:07 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@ int	main(int ac, char **av)
 	char	*hold;
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_data	data;
+	t_data	data_s;
 
 	if (ac >= 2)
 	{
 		stack_b = NULL;
 		stack_a = NULL;
-		handl_arg(av, &data);
-		data.node_num = data.size_a;
-		fill_stack(&stack_a, &data);
-		get_val_end(&stack_a, &data);
-		if (check_stack_a(stack_a) == 1)
-			exit(0);
+		handl_arg(av, &data_s);
+		data_s.size_a = data_s.node_num;
+		fill_stack(&stack_a, &data_s);
+		get_val_end(&stack_a, &data_s);
 		while (1)
 		{
 			hold = get_next_line(0);
@@ -37,10 +35,7 @@ int	main(int ac, char **av)
 			compare_exec(hold, &stack_a, &stack_b);
 			free(hold);
 		}
-		if (check_stack_a(stack_a) == 1 && ft_lstsize(stack_a) == data.node_num)
-			write(1, "OK\n", 3);
-		else
-			write(2, "KO\n", 3);
+		ok_or_ko(&data_s, &stack_a);
 	}
 }	
 
@@ -62,6 +57,21 @@ void	compare_exec(char *src, t_list	**stack_a, t_list **stack_b)
 		s(stack_a);
 	else if (ft_strncmp(src, "sb\n", 3) == 0)
 		s(stack_b);
+	else if (ft_strncmp(src, "ss\n", 3) == 0)
+		ss(stack_b, stack_a);
+	else if (ft_strncmp(src, "rr\n", 3) == 0)
+		r_r(stack_b, stack_a);
+	else if (ft_strncmp(src, "rrr\n", 3) == 0)
+		rrr(stack_b, stack_a);
 	else
 		ft_putstr_fd("Error\n", 2);
+}
+
+void	ok_or_ko(t_data *data_s, t_list **stack_a)
+{
+	if (check_stack_a(*stack_a) == 1 && \
+	ft_lstsize(*stack_a) == data_s->node_num - 1)
+		write(1, "OK\n", 3);
+	else
+		write(2, "KO\n", 3);
 }
