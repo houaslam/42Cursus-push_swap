@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 09:25:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 11:22:18 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:05:54 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,13 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
+		nb = nb * 10 + (str[i++] - '0');
+	if (str[i] != '\0')
+		ft_putstr_fd("error\n", 2);
 	nb = nb * sign;
 	if (nb > INT_MAX || nb < INT_MIN)
 		ft_putstr_fd("Error\n", 2);
-	return (nb * sign);
+	return (nb);
 }
 
 void	ft_putstr_fd(char *s, int fd)

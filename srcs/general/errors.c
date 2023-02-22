@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 13:41:15 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:22:10 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,17 @@ void	copy_to_tab(t_data *data, char **str)
 	free(str);
 }
 
+void check(char *s)
+{
+	int i=0;
+	while(s[i])
+	{
+		if(s[i]>='0' && s[i]<='9')
+			return ;
+		i++;
+	}
+	ft_putstr_fd("Error\n", 2);
+}
 void	handl_arg(char **av, t_data *data)
 {
 	int		i;
@@ -94,7 +105,8 @@ void	handl_arg(char **av, t_data *data)
 	ptr = NULL;
 	while (av[i])
 	{
-		if (av[i][0] == '\0' || av[i][0] == ' ')
+		check(av[i]);
+		if (av[i][0] == '\0')
 			ft_putstr_fd("Error\n", 2);
 		ptr = ft_strjoin(ptr, av[i++]);
 		ptr = ft_strjoin(ptr, " ");
