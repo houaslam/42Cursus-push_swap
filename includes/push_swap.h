@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 13:32:35 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:37:42 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int		check_stack_a(t_list *stack_a);
 void	main_push(int ac, char **av);
 void	check_cases(t_list **stack_a, t_data data);
 void	free_list(t_list **lst);
+void	check(char *s);
 
 //!small
 void	get_back(t_list **stack);

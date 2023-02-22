@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:25:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 13:43:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:40:04 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,18 @@ void	fill_stack(t_list **stack_a, t_data *data)
 		ft_lstadd_back(stack_a, new_node);
 		i++;
 	}
+}
+
+void	check(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			return ;
+		i++;
+	}
+	ft_putstr_fd("Error\n", 2);
 }

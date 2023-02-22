@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 19:26:13 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 13:32:48 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:37:33 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	check_double(t_data *data);
 int		check_stack_a(t_list *stack_a);
 void	compare_exec(char *src, t_list	**stack_a, t_list **stack_b);
 void	ok_or_ko(t_data *data, t_list **stack_a);
+void	check(char *s);
 
 //split
 int		ft_dim1(char *s, char c);

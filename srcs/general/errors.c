@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:30 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 14:22:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:36:56 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,6 @@ void	copy_to_tab(t_data *data, char **str)
 	free(str);
 }
 
-void check(char *s)
-{
-	int i=0;
-	while(s[i])
-	{
-		if(s[i]>='0' && s[i]<='9')
-			return ;
-		i++;
-	}
-	ft_putstr_fd("Error\n", 2);
-}
 void	handl_arg(char **av, t_data *data)
 {
 	int		i;
