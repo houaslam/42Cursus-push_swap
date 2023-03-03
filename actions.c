@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:26:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 14:34:05 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:52:40 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	taking_fork_action(t_philo *philo)
 {
+	gettimeofday(&philo->data->d1, NULL);
 	pthread_mutex_lock(philo->rf);
 	printf_msg("took right fork", philo);
 	pthread_mutex_lock(philo->lf);
@@ -37,4 +38,9 @@ void	sleeping_action(t_philo *philo)
 {
 	usleep(philo->data->t_sleep * 1000);
 	printf_msg("is sleeping", philo);
+	gettimeofday(&philo->data->d2, NULL);
+	pthread_mutex_lock(&philo->data->death);
+	philo->data->d = right_time(philo->data->d2) - right_time(philo->data->d1);
+	printf("death %d\n", philo->data->d );
+	pthread_mutex_unlock(&philo->data->death);
 }

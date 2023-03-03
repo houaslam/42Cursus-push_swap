@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:46:15 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 14:14:16 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:52:37 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ void	check_loop(t_data *data)
 		if (data->check1 == data->p_nb)
 			return ;
 		pthread_mutex_unlock(&data->meals);
+		pthread_mutex_lock(&data->death);
+		if (data->d >= data->t_die)
+		{
+			printf_msg("is dead", &data->philo[i]);	
+			return ;
+		}
+		pthread_mutex_unlock(&data->death);
 		if (i + 1 == data->p_nb)
 			i = 0;
 		i++;
