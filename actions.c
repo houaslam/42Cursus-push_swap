@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:26:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 14:06:13 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:34:05 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	taking_fork_action(t_philo *philo)
 
 void	eating_action(t_philo *philo)
 {
-	// usleep(philo->data->t_eat * 1000);
+	usleep(philo->data->t_eat * 1000);
 	pthread_mutex_lock(&philo->data->meals);
 	philo->m_nb++;
 	if (philo->m_nb == philo->data->nb_m)
 			philo->data->check1++;
-	// printf_msg("is eating", philo);
+	printf_msg("is eating", philo);
 	pthread_mutex_unlock(&philo->data->meals);
 	pthread_mutex_unlock(philo->rf);
 	pthread_mutex_unlock(philo->lf);
