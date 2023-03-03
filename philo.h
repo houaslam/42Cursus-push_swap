@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:46:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 14:52:44 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:53:20 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct t_philo
 	int				m_nb;
 	struct t_data	*data;
 	pthread_t		t;
+	int				death;
 	pthread_mutex_t	*rf;
 	pthread_mutex_t	*lf;
 }				t_philo;

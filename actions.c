@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 20:26:20 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 14:52:40 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:52:02 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	sleeping_action(t_philo *philo)
 	usleep(philo->data->t_sleep * 1000);
 	printf_msg("is sleeping", philo);
 	gettimeofday(&philo->data->d2, NULL);
+	printf_msg("is thinking", philo);
 	pthread_mutex_lock(&philo->data->death);
 	philo->data->d = right_time(philo->data->d2) - right_time(philo->data->d1);
-	printf("death %d\n", philo->data->d );
+	philo->death = right_time(philo->data->d2) - right_time(philo->data->d1);
+	printf("%d death %d\n", philo->nb, philo->death);
 	pthread_mutex_unlock(&philo->data->death);
 }
