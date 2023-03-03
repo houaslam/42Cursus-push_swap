@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:15:34 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 15:30:10 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:59:03 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ t_data	*initialize_general(int ac, char **av)
 	pthread_mutex_init(&data->print, NULL);
 	pthread_mutex_init(&data->meals, NULL);
 	pthread_mutex_init(&data->death, NULL);
+	pthread_mutex_init(&data->time, NULL);
 	data->forks = malloc (sizeof(pthread_mutex_t) * data->p_nb);
 	data->philo = malloc (sizeof(t_philo) * data->p_nb);
 	initialize_forks(data);
