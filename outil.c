@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_3.c                                          :+:      :+:    :+:   */
+/*   outil.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 09:25:52 by houaslam          #+#    #+#             */
-/*   Updated: 2023/02/22 14:05:54 by houaslam         ###   ########.fr       */
+/*   Created: 2023/03/02 16:52:58 by houaslam          #+#    #+#             */
+/*   Updated: 2023/03/02 20:24:01 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+#include "philo.h"
 
 int	ft_atoi(const char *str)
 {
 	int				i;
 	int				sign;
-	long			nb;
+	unsigned long	nb;
 
 	nb = 0;
 	i = 0;
@@ -40,26 +30,21 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-		nb = nb * 10 + (str[i++] - '0');
-	if (str[i] != '\0')
-		ft_putstr_fd("error\n", 2);
-	nb = nb * sign;
-	if (nb > INT_MAX || nb < INT_MIN)
-		ft_putstr_fd("Error\n", 2);
-	return (nb);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
 	{
-		write(fd, &s[i], 1);
+		nb = nb * 10 + (str[i] - '0');
+		if (nb > INT_MAX && sign > 0)
+			return (-1);
+		if (nb > INT_MAX && sign < 0)
+			return (0);
 		i++;
 	}
-	exit(1);
+	return (nb * sign);
+}
+
+unsigned long	right_time(struct timeval time)
+{
+	unsigned long			res;
+
+	res = time.tv_sec * 1000 + time.tv_usec / 1000;
+	return (res);
 }
