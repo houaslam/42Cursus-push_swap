@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:52:58 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/02 20:24:01 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:30:28 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,16 @@ unsigned long	right_time(struct timeval time)
 
 	res = time.tv_sec * 1000 + time.tv_usec / 1000;
 	return (res);
+}
+
+void	printf_msg(char *str, t_philo *philo, int f)
+{
+	struct timeval now;
+
+	gettimeofday(&now, NULL);
+	printf("%lu ms philo %d %s\n", right_time(now) \
+	- right_time(philo->data->start_time), philo->nb, str);
+	pthread_mutex_lock(&philo->data->print);
+	if (f != 1)
+		pthread_mutex_unlock(&philo->data->print);
 }

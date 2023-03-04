@@ -6,7 +6,7 @@
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:46:51 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 15:58:50 by houaslam         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:43:45 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,23 @@ typedef struct t_philo
 	int				death;
 	pthread_mutex_t	*rf;
 	pthread_mutex_t	*lf;
+	struct timeval	d2;
+	struct timeval	d1;
+	unsigned long	store;
+	int				d;
 }				t_philo;
 
 typedef struct t_data
 {
 	int				p_nb;
-	int				d;
 	int				t_die;
 	int				t_sleep;
 	int				t_eat;
+	struct timeval	start_time;
 	int				nb_m;
 	int				check1;
 	t_philo			*philo;
 	struct timeval	now;
-	struct timeval	d1;
-	struct timeval	d2;
-	struct timeval	start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
 	pthread_mutex_t	time;
@@ -56,7 +57,7 @@ int					ft_atoi(const char *str);
 void				initialize_threads(t_data *data);
 void				initialize_forks(t_data *data);
 void				initialize_philo(t_data *data);
-void				printf_msg(char *str, t_philo *philo);
+void				printf_msg(char *str, t_philo *philo, int i);
 void				taking_fork_action(t_philo *philo);
 void				*globale_action(void	*ptr);
 void				taking_fork_action(t_philo *philo);
@@ -65,5 +66,9 @@ void				sleeping_action(t_philo *philo);
 void				check_loop(t_data *data);
 t_data				*initialize_general(int ac, char **av);
 unsigned long		right_time(struct timeval time);
+void				initialize_mutex(t_data *data);
+int					check_arg(char **str);
+int					check_data(t_data *data, int ac);
+void				update_time(t_philo *philo);
 
 #endif
