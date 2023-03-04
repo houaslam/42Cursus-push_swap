@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: houaslam <houaslam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 16:46:15 by houaslam          #+#    #+#             */
-/*   Updated: 2023/03/03 21:23:09 by houaslam         ###   ########.fr       */
+/*   Created: 2023/01/14 12:53:29 by houaslam          #+#    #+#             */
+/*   Updated: 2023/02/20 09:37:19 by houaslam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_lstsize(t_list *lst)
 {
-	t_data	*data;
-	int		i;
+	int	i;
 
-	if (ac == 5 || ac == 6)
-		data = initialize_general(ac, av);
-	else
-		return (0);
-	if (!data)
-		return (0);
-	initialize_threads(data);
-	check_loop(data);
 	i = 0;
-	while (i < data->p_nb)
+	if (!lst)
+		return (0);
+	while (lst)
 	{
-		pthread_detach(data->philo[i].t);
 		i++;
+		lst = lst->next;
 	}
-	return (0);
+	return (i);
+}
+
+t_list	*ft_lstnew(int i)
+{
+	t_list	*node;
+
+	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->x = i;
+	node->next = NULL;
+	return (node);
 }
